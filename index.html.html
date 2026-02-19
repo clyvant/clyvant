@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLYVANT SDN BHD | Malaysia's Elite TikTok Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --lime: #C6D82E;
+            --lime-glow: rgba(198, 216, 46, 0.5);
+            --gold: #FFD700;
+            --dark: #050505;
+            --card: rgba(255,255,255,0.03);
+            --card-border: rgba(255,255,255,0.08);
+            --glass: rgba(255,255,255,0.05);
+            --text: #ffffff;
+            --text-dim: rgba(255,255,255,0.6);
+            --velto: #2E7D32;
+            --whatsapp: #25D366;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(198, 216, 46, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(198, 216, 46, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+        
+        .bg-glow {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(198, 216, 46, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(46, 125, 50, 0.05) 0%, transparent 50%);
+            z-index: 0;
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-5%, -5%) rotate(5deg); }
+        }
+        
+        /* Floating Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: orbFloat 15s ease-in-out infinite;
+        }
+        
+        .orb-1 { width: 400px; height: 400px; background: rgba(198, 216, 46, 0.15); top: 10%; left: 10%; }
+        .orb-2 { width: 300px; height: 300px; background: rgba(46, 125, 50, 0.1); bottom: 20%; right: 10%; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: rgba(255, 215, 0, 0.08); top: 50%; left: 50%; animation-delay: -10s; }
+        
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -30px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(30px, 30px) scale(1.05); }
+        }
+        
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1000;
+            display: flex;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 4px;
+            border: 1px solid var(--card-border);
+        }
+        
+        .lang-btn {
+            padding: 10px 18px;
+            border: none;
+            background: transparent;
+            color: var(--text-dim);
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+        }
+        
+        .lang-btn.active {
+            background: var(--lime);
+            color: var(--dark);
+            box-shadow: 0 0 30px var(--lime-glow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            padding: 100px 40px;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+        }
+        
+        /* Award Badge */
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(198, 216, 46, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 14px 28px;
+            border-radius: 60px;
+            margin-bottom: 50px;
+            animation: badgeGlow 3s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+        }
+        
+        @keyframes badgeGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.2), inset 0 0 30px rgba(255, 215, 0, 0.05); }
+            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.4), inset 0 0 50px rgba(255, 215, 0, 0.1); }
+        }
+        
+        .award-icon { font-size: 24px; animation: bounce 2s ease-in-out infinite; }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .award-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        /* Logo */
+        .hero-logo-container {
+            position: relative;
+            margin-bottom: 60px;
+            display: inline-block;
+        }
+        
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--lime);
+            text-shadow: 0 0 60px var(--lime-glow);
+            animation: logoFloat 6s ease-in-out infinite;
+            letter-spacing: -2px;
+        }
+        
+        .logo-tagline {
+            font-size: 14px;
+            color: var(--text-dim);
+            letter-spacing: 4px;
+            margin-top: 10px;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .logo-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(198, 216, 46, 0.2);
+            border-radius: 50%;
+            animation: ringPulse 4s ease-in-out infinite;
+        }
+        
+        .logo-ring-2 {
+            width: 350px;
+            height: 350px;
+            animation-delay: -2s;
+            border-color: rgba(198, 216, 46, 0.1);
+        }
+        
+        @keyframes ringPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.2; }
+        }
+        
+        /* Hero Title */
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--lime) 50%, #ffffff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-dim);
+            margin-bottom: 60px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        /* Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item { text-align: center; }
+        
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--lime);
+            line-height: 1;
+            text-shadow: 0 0 40px var(--lime-glow);
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+        
+        /* Sections */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 40px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--lime);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--lime);
+        }
+        
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .section-title span { color: var(--lime); }
+        
+        .section-desc {
+            font-size: 18px;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Achievement Cards */
+        .achievements {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .achievement-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--lime), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(198, 216, 46, 0.3);
+            box-shadow: 0 30px 60px rgba(198, 216, 46, 0.1);
+        }
+        
+        .achievement-card:hover::before { opacity: 1; }
+        
+        .achievement-icon { font-size: 48px; margin-bottom: 20px; display: block; }
+        
+        .achievement-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--lime);
+            margin-bottom: 8px;
+        }
+        
+        .achievement-label {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+        
+        /* Brands Section */
+        .brands-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+        
+        .brand-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 45px 35px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+        
+        .brand-card.hillside { border-color: rgba(255,255,255,0.15); }
+        .brand-card.hillside:hover { border-color: rgba(255,255,255,0.4); box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
+        
+        .brand-card.velto { border-color: rgba(46, 125, 50, 0.3); }
+        .brand-card.velto:hover { border-color: var(--velto); box-shadow: 0 40px 80px rgba(46, 125, 50, 0.2); }
+        
+        .brand-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .brand-card.hillside .brand-name { color: #fff; }
+        .brand-card.velto .brand-name { color: #81C784; }
+        
+        .brand-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .brand-card.hillside .brand-status { background: rgba(255,255,255,0.1); color: #fff; }
+        .brand-card.velto .brand-status { background: rgba(46, 125, 50, 0.2); color: #81C784; }
+        
+        .commission-display {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .commission-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .commission-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .brand-card.hillside .commission-value { color: #fff; }
+        .brand-card.velto .commission-value { color: #81C784; }
+        
+        .brand-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        
+        .brand-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-dim);
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .brand-features li:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateX(5px);
+        }
+        
+        .feature-icon { font-size: 18px; }
+        
+        /* Commission Showcase */
+        .commission-showcase {
+            max-width: 900px;
+            margin: 0 auto 70px;
+        }
+        
+        .commission-hero {
+            background: linear-gradient(135deg, var(--card), rgba(198, 216, 46, 0.05));
+            border: 2px solid var(--lime);
+            border-radius: 32px;
+            padding: 55px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .commission-hero::before {
+            content: '';
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background: conic-gradient(from 0deg, transparent, rgba(198, 216, 46, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .commission-content { position: relative; z-index: 1; }
+        
+        .commission-title {
+            font-size: 16px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .commission-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--lime);
+            line-height: 1;
+            text-shadow: 0 0 60px var(--lime-glow);
+            margin-bottom: 15px;
+        }
+        
+        .commission-period {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 28px 18px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-card-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+        
+        .stat-card-label {
+            font-size: 11px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Leaderboard */
+        .leaderboard-container { max-width: 850px; margin: 0 auto; }
+        
+        .leaderboard-header { text-align: center; margin-bottom: 35px; }
+        
+        .leaderboard-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .leader-card {
+            display: grid;
+            grid-template-columns: 65px 1fr 140px 140px;
+            align-items: center;
+            gap: 20px;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 18px 28px;
+            margin-bottom: 14px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .leader-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(198, 216, 46, 0.3);
+        }
+        
+        .leader-card.top-3 {
+            background: linear-gradient(135deg, var(--card), rgba(255, 215, 0, 0.05));
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .rank-badge {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .rank-badge.gold { background: linear-gradient(135deg, #FFD700, #FFA000); color: #000; }
+        .rank-badge.silver { background: linear-gradient(135deg, #E0E0E0, #9E9E9E); color: #000; }
+        .rank-badge.bronze { background: linear-gradient(135deg, #CD7F32, #8B4513); color: #fff; }
+        .rank-badge.normal { background: var(--card-border); color: var(--text-dim); }
+        
+        .leader-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .leader-info span { font-size: 12px; color: var(--text-dim); }
+        
+        .leader-gmv, .leader-commission { text-align: right; }
+        
+        .leader-gmv strong, .leader-commission strong {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+        }
+        
+        .leader-gmv strong { color: var(--lime); }
+        .leader-commission strong { color: var(--gold); }
+        
+        .leader-gmv span, .leader-commission span {
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Benefits */
+        .benefits-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+        
+        .benefit-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 22px;
+            padding: 38px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--lime);
+            box-shadow: 0 30px 60px rgba(198, 216, 46, 0.15);
+        }
+        
+        .benefit-icon { font-size: 46px; margin-bottom: 22px; display: block; }
+        
+        .benefit-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--lime);
+            margin-bottom: 10px;
+        }
+        
+        .benefit-desc { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+        
+        /* Rewards */
+        .rewards-grid {
+            max-width: 950px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        
+        .reward-card {
+            background: linear-gradient(135deg, var(--card), rgba(255, 215, 0, 0.03));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 22px;
+            padding: 32px 18px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .reward-card:hover {
+            transform: translateY(-12px) rotateY(5deg);
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.2);
+        }
+        
+        .reward-icon { font-size: 50px; margin-bottom: 18px; display: block; }
+        
+        .reward-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+        
+        .reward-desc { font-size: 12px; color: var(--text-dim); }
+        
+        /* CTA */
+        .cta-section { padding: 130px 40px; }
+        
+        .cta-container { max-width: 750px; margin: 0 auto; text-align: center; }
+        
+        .cta-icon {
+            font-size: 75px;
+            margin-bottom: 28px;
+            display: block;
+            animation: rocketFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes rocketFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        
+        .cta-title span { color: var(--lime); }
+        
+        .cta-desc { font-size: 18px; color: var(--text-dim); margin-bottom: 45px; }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 20px 45px;
+            border-radius: 60px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(37, 211, 102, 0.4);
+        }
+        
+        .cta-button svg { width: 26px; height: 26px; fill: white; }
+        
+        .cta-email { display: block; margin-top: 22px; font-size: 15px; color: var(--text-dim); }
+        .cta-email a { color: var(--lime); text-decoration: none; }
+        
+        /* Company Badge */
+        .company-badge {
+            margin-top: 55px;
+            padding: 22px 38px;
+            background: var(--card);
+            border: 1px solid var(--lime);
+            border-radius: 18px;
+            display: inline-block;
+        }
+        
+        .company-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--lime);
+            margin-bottom: 5px;
+        }
+        
+        .company-reg { font-size: 12px; color: var(--text-dim); }
+        
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+            padding: 45px 40px;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--lime);
+            margin-bottom: 15px;
+        }
+        
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact { font-size: 14px; color: var(--text-dim); }
+        .footer-contact a { color: var(--lime); text-decoration: none; }
+        
+        .footer-copyright { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 18px; }
+        
+        /* WhatsApp Float */
+        .wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--whatsapp);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+            animation: waPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes waPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .wa-float svg { width: 22px; height: 22px; fill: white; }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .achievements { grid-template-columns: repeat(2, 1fr); }
+            .brands-container { grid-template-columns: 1fr; max-width: 480px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .rewards-grid { grid-template-columns: repeat(2, 1fr); }
+            .leader-card { grid-template-columns: 55px 1fr; }
+            .leader-gmv, .leader-commission { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .lang-toggle { top: 15px; right: 15px; }
+            .lang-btn { padding: 8px 14px; font-size: 11px; }
+            .hero { padding: 80px 20px; }
+            .logo-text { font-size: 48px; }
+            .hero-title { font-size: 34px; }
+            .hero-subtitle { font-size: 16px; }
+            .stat-value { font-size: 34px; }
+            .hero-stats { gap: 30px; }
+            section { padding: 70px 20px; }
+            .section-title { font-size: 30px; }
+            .achievements { gap: 15px; }
+            .achievement-card { padding: 30px 18px; }
+            .achievement-value { font-size: 30px; }
+            .commission-amount { font-size: 52px; }
+            .stats-grid { gap: 12px; }
+            .stat-card-value { font-size: 24px; }
+            .benefits-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
+            .rewards-grid { gap: 12px; }
+            .reward-card { padding: 25px 15px; }
+            .cta-title { font-size: 34px; }
+            .cta-button { padding: 18px 35px; font-size: 16px; }
+            .wa-float { padding: 12px 20px; font-size: 13px; bottom: 18px; right: 18px; }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text { font-size: 38px; }
+            .hero-title { font-size: 28px; }
+            .stat-value { font-size: 28px; }
+            .achievements { grid-template-columns: 1fr; }
+            .rewards-grid { grid-template-columns: 1fr; }
+            .commission-amount { font-size: 42px; }
+        }
+        
+        /* Language */
+        [data-lang="en"] { display: none; }
+        body.lang-en [data-lang="en"] { display: block; }
+        body.lang-en [data-lang="ms"] { display: none; }
+        span[data-lang="en"] { display: none; }
+        body.lang-en span[data-lang="en"] { display: inline; }
+        body.lang-en span[data-lang="ms"] { display: none; }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    
+    <div class="lang-toggle">
+        <button class="lang-btn active" id="btnMs" onclick="setLang('ms')">🇲🇾 BM</button>
+        <button class="lang-btn" id="btnEn" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+    
+    <a href="https://wa.me/60109329876" target="_blank" class="wa-float">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-lang="ms">Hubungi Kami</span>
+        <span data-lang="en">Contact Us</span>
+    </a>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="award-badge">
+                <span class="award-icon">🏆</span>
+                <span class="award-text" data-lang="ms">Pemenang Anugerah TikTok</span>
+                <span class="award-text" data-lang="en">TikTok Award Winner</span>
+            </div>
+            
+            <div class="hero-logo-container">
+                <div class="logo-ring"></div>
+                <div class="logo-ring logo-ring-2"></div>
+                <div class="logo-text">CLYVANT</div>
+                <div class="logo-tagline">WHERE IDEAS TURN INTO IMPACT</div>
+            </div>
+            
+            <h1 class="hero-title" data-lang="ms">Agensi TikTok Elite Malaysia</h1>
+            <h1 class="hero-title" data-lang="en">Malaysia's Elite TikTok Agency</h1>
+            
+            <p class="hero-subtitle" data-lang="ms">Penjana iklan #1 di TikTok Malaysia. Kami telah bantu kreator jana pendapatan luar biasa melalui program affiliate yang terbukti berjaya.</p>
+            <p class="hero-subtitle" data-lang="en">Malaysia's #1 TikTok ads spender. We help creators achieve extraordinary income through our proven affiliate programs.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">RM 4.9M+</div>
+                    <div class="stat-label" data-lang="ms">Jumlah GMV Affiliate</div>
+                    <div class="stat-label" data-lang="en">Total Affiliate GMV</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">RM 726K+</div>
+                    <div class="stat-label" data-lang="ms">Komisen Dibayar</div>
+                    <div class="stat-label" data-lang="en">Commission Paid</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">88.7%</div>
+                    <div class="stat-label" data-lang="ms">Jualan Dari Affiliate</div>
+                    <div class="stat-label" data-lang="en">Sales From Affiliates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="section-header">
+            <div class="section-label" data-lang="ms">Pencapaian Kami</div>
+            <div class="section-label" data-lang="en">Our Achievements</div>
+            <h2 class="section-title" data-lang="ms">Kenapa <span>CLYVANT?</span></h2>
+            <h2 class="section-title" data-lang="en">Why <span>CLYVANT?</span></h2>
+        </div>
+        
+        <div class="achievements">
+            <div class="achievement-card">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-value">#1</div>
+                <div class="achievement-label" data-lang="ms">Penjana Iklan<br>TikTok Malaysia</div>
+                <div class="achievement-label" data-lang="en">TikTok Malaysia<br>Ads Spender</div>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">💰</span>
+                <div class="achievement-value">RM 3M+</div>
+                <div class="achievement-label" data-lang="ms">Belanja<br>Untuk Iklan</div>
+                <div class="achievement-label" data-lang="en">Spent<br>On Ads</div>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">📦</span>
+                <div class="achievement-value">200K+</div>
+                <div class="achievement-label" data-lang="ms">Unit<br>Terjual</div>
+                <div class="achievement-label" data-lang="en">Units<br>Sold</div>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">🤝</span>
+                <div class="achievement-value">33K+</div>
+                <div class="achievement-label" data-lang="ms">Kreator<br>Affiliate</div>
+                <div class="achievement-label" data-lang="en">Affiliate<br>Creators</div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="section-header">
+            <div class="section-label" data-lang="ms">Jenama Kami</div>
+            <div class="section-label" data-lang="en">Our Brands</div>
+            <h2 class="section-title" data-lang="ms">Jenama Di Bawah <span>CLYVANT</span></h2>
+            <h2 class="section-title" data-lang="en">Brands Under <span>CLYVANT</span></h2>
+        </div>
+        
+        <div class="brands-container">
+            <div class="brand-card hillside">
+                <div class="brand-header">
+                    <h3 class="brand-name">Hillside Shilajit</h3>
+                    <span class="brand-status" data-lang="ms">✅ Jenama Terbukti</span>
+                    <span class="brand-status" data-lang="en">✅ Proven Brand</span>
+                </div>
+                <div class="commission-display">
+                    <div class="commission-label" data-lang="ms">Kadar Komisen</div>
+                    <div class="commission-label" data-lang="en">Commission Rate</div>
+                    <div class="commission-value">18%</div>
+                </div>
+                <ul class="brand-features">
+                    <li><span class="feature-icon">💰</span> <span data-lang="ms">RM 4.9M+ GMV affiliate</span><span data-lang="en">RM 4.9M+ affiliate GMV</span></li>
+                    <li><span class="feature-icon">📺</span> <span data-lang="ms">Sokongan iklan penuh</span><span data-lang="en">Full ads support</span></li>
+                    <li><span class="feature-icon">👨‍💼</span> <span data-lang="ms">Pengurus akaun dedikasi</span><span data-lang="en">Dedicated account manager</span></li>
+                    <li><span class="feature-icon">🎯</span> <span data-lang="ms">Terbukti berjuta jualan</span><span data-lang="en">Proven millions in sales</span></li>
+                </ul>
+            </div>
+            
+            <div class="brand-card velto">
+                <div class="brand-header">
+                    <h3 class="brand-name">Velto Nutrition</h3>
+                    <span class="brand-status" data-lang="ms">🔥 Jenama Baru!</span>
+                    <span class="brand-status" data-lang="en">🔥 New Brand!</span>
+                </div>
+                <div class="commission-display">
+                    <div class="commission-label" data-lang="ms">Kadar Komisen</div>
+                    <div class="commission-label" data-lang="en">Commission Rate</div>
+                    <div class="commission-value">30%</div>
+                </div>
+                <ul class="brand-features">
+                    <li><span class="feature-icon">⭐</span> <span data-lang="ms">Komisen TERTINGGI pasaran</span><span data-lang="en">HIGHEST market commission</span></li>
+                    <li><span class="feature-icon">📺</span> <span data-lang="ms">Sokongan iklan penuh</span><span data-lang="en">Full ads support</span></li>
+                    <li><span class="feature-icon">👨‍💼</span> <span data-lang="ms">Pengurus akaun dedikasi</span><span data-lang="en">Dedicated account manager</span></li>
+                    <li><span class="feature-icon">🚀</span> <span data-lang="ms">Jadi pertama, raih maksimum!</span><span data-lang="en">Be first, earn maximum!</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="section-header">
+            <div class="section-label" data-lang="ms">Pendapatan Kreator</div>
+            <div class="section-label" data-lang="en">Creator Earnings</div>
+            <h2 class="section-title" data-lang="ms">Kreator Kami <span>Sudah Dapat</span></h2>
+            <h2 class="section-title" data-lang="en">Our Creators <span>Already Earned</span></h2>
+        </div>
+        
+        <div class="commission-showcase">
+            <div class="commission-hero">
+                <div class="commission-content">
+                    <div class="commission-title" data-lang="ms">Komisen Dalam 1 Bulan Sahaja</div>
+                    <div class="commission-title" data-lang="en">Commission In Just 1 Month</div>
+                    <div class="commission-amount">RM 726,200</div>
+                    <div class="commission-period" data-lang="ms">⚡ Dan terus meningkat setiap hari!</div>
+                    <div class="commission-period" data-lang="en">⚡ And growing every single day!</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-card-value">RM 4.9M</div>
+                <div class="stat-card-label">Affiliate GMV</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">RM 196.4K</div>
+                <div class="stat-card-label">LIVE GMV</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">RM 243.3K</div>
+                <div class="stat-card-label">Product Card GMV</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-value">88.7%</div>
+                <div class="stat-card-label" data-lang="ms">Dari Affiliate</div>
+                <div class="stat-card-label" data-lang="en">From Affiliates</div>
+            </div>
+        </div>
+        
+        <div class="leaderboard-container">
+            <div class="leaderboard-header">
+                <h3 class="leaderboard-title">🏆 <span data-lang="ms">Top Kreator (1 Bulan)</span><span data-lang="en">Top Creators (1 Month)</span></h3>
+            </div>
+            
+            <div class="leader-card top-3">
+                <div class="rank-badge gold">1</div>
+                <div class="leader-info"><h4>Top Creator #1</h4><span>597.3K followers</span></div>
+                <div class="leader-gmv"><strong>RM 697.3K</strong><span>GMV</span></div>
+                <div class="leader-commission"><strong>RM 99.5K</strong><span>Commission</span></div>
+            </div>
+            
+            <div class="leader-card top-3">
+                <div class="rank-badge silver">2</div>
+                <div class="leader-info"><h4>Top Creator #2</h4><span>98.7K followers</span></div>
+                <div class="leader-gmv"><strong>RM 539.4K</strong><span>GMV</span></div>
+                <div class="leader-commission"><strong>RM 84.6K</strong><span>Commission</span></div>
+            </div>
+            
+            <div class="leader-card top-3">
+                <div class="rank-badge bronze">3</div>
+                <div class="leader-info"><h4>Top Creator #3</h4><span>19.7K followers</span></div>
+                <div class="leader-gmv"><strong>RM 386.5K</strong><span>GMV</span></div>
+                <div class="leader-commission"><strong>RM 51.8K</strong><span>Commission</span></div>
+            </div>
+            
+            <div class="leader-card">
+                <div class="rank-badge normal">4</div>
+                <div class="leader-info"><h4>Top Creator #4</h4><span>635.5K followers</span></div>
+                <div class="leader-gmv"><strong>RM 320.7K</strong><span>GMV</span></div>
+                <div class="leader-commission"><strong>RM 45.2K</strong><span>Commission</span></div>
+            </div>
+            
+            <div class="leader-card">
+                <div class="rank-badge normal">5</div>
+                <div class="leader-info"><h4>Top Creator #5</h4><span>210K followers</span></div>
+                <div class="leader-gmv"><strong>RM 167.7K</strong><span>GMV</span></div>
+                <div class="leader-commission"><strong>RM 21.6K</strong><span>Commission</span></div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="section-header">
+            <div class="section-label" data-lang="ms">Kelebihan Anda</div>
+            <div class="section-label" data-lang="en">Your Benefits</div>
+            <h2 class="section-title" data-lang="ms">Apa Yang Kami <span>Tawarkan</span></h2>
+            <h2 class="section-title" data-lang="en">What We <span>Offer</span></h2>
+        </div>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">💰</span>
+                <h4 class="benefit-title" data-lang="ms">Komisen Tertinggi</h4>
+                <h4 class="benefit-title" data-lang="en">Highest Commission</h4>
+                <p class="benefit-desc" data-lang="ms">Lebih tinggi dari jenama langsung. Sehingga 30% untuk Velto!</p>
+                <p class="benefit-desc" data-lang="en">Higher than direct brand. Up to 30% for Velto!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon">📺</span>
+                <h4 class="benefit-title" data-lang="ms">Sokongan Iklan</h4>
+                <h4 class="benefit-title" data-lang="en">Ads Support</h4>
+                <p class="benefit-desc" data-lang="ms">Kami jalankan iklan untuk konten anda. Berjuta dibelanja!</p>
+                <p class="benefit-desc" data-lang="en">We run ads for your content. Millions spent!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon">👨‍💼</span>
+                <h4 class="benefit-title" data-lang="ms">Pengurus Akaun</h4>
+                <h4 class="benefit-title" data-lang="en">Account Manager</h4>
+                <p class="benefit-desc" data-lang="ms">Pengurus dedikasi untuk bantu anda 24/7!</p>
+                <p class="benefit-desc" data-lang="en">Dedicated manager to help you 24/7!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon">🎯</span>
+                <h4 class="benefit-title" data-lang="ms">Audiens Sebenar</h4>
+                <h4 class="benefit-title" data-lang="en">Real Audience</h4>
+                <p class="benefit-desc" data-lang="ms">Kami bawa pengikut sebenar yang akan sokong anda!</p>
+                <p class="benefit-desc" data-lang="en">We bring real followers who will support you!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon">🚀</span>
+                <h4 class="benefit-title" data-lang="ms">Viral Konten</h4>
+                <h4 class="benefit-title" data-lang="en">Viral Content</h4>
+                <p class="benefit-desc" data-lang="ms">Setiap konten, kami bantu untuk viral!</p>
+                <p class="benefit-desc" data-lang="en">Every content, we help go viral!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <span class="benefit-icon">💎</span>
+                <h4 class="benefit-title" data-lang="ms">RM 100K/Bulan</h4>
+                <h4 class="benefit-title" data-lang="en">RM 100K/Month</h4>
+                <p class="benefit-desc" data-lang="ms">Kami bantu anda capai RM 100K sebulan!</p>
+                <p class="benefit-desc" data-lang="en">We help you hit RM 100K monthly!</p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="section-header">
+            <div class="section-label" data-lang="ms">Ganjaran Eksklusif</div>
+            <div class="section-label" data-lang="en">Exclusive Rewards</div>
+            <h2 class="section-title" data-lang="ms">Bonus <span>Top Performer</span></h2>
+            <h2 class="section-title" data-lang="en">Top Performer <span>Bonuses</span></h2>
+        </div>
+        
+        <div class="rewards-grid">
+            <div class="reward-card">
+                <span class="reward-icon">🏍️</span>
+                <h4 class="reward-title" data-lang="ms">Motor Percuma</h4>
+                <h4 class="reward-title" data-lang="en">Free Motorcycle</h4>
+                <p class="reward-desc" data-lang="ms">Top performer bulanan</p>
+                <p class="reward-desc" data-lang="en">Monthly top performer</p>
+            </div>
+            
+            <div class="reward-card">
+                <span class="reward-icon">🚗</span>
+                <h4 class="reward-title" data-lang="ms">Kereta Percuma</h4>
+                <h4 class="reward-title" data-lang="en">Free Car</h4>
+                <p class="reward-desc" data-lang="ms">Top performer tahunan</p>
+                <p class="reward-desc" data-lang="en">Yearly top performer</p>
+            </div>
+            
+            <div class="reward-card">
+                <span class="reward-icon">✈️</span>
+                <h4 class="reward-title">Trip Dubai</h4>
+                <p class="reward-desc">All-expense paid</p>
+            </div>
+            
+            <div class="reward-card">
+                <span class="reward-icon">💵</span>
+                <h4 class="reward-title" data-lang="ms">Bonus Tunai</h4>
+                <h4 class="reward-title" data-lang="en">Cash Bonuses</h4>
+                <p class="reward-desc" data-lang="ms">Bonus eksklusif bulanan</p>
+                <p class="reward-desc" data-lang="en">Exclusive monthly bonuses</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <span class="cta-icon">🚀</span>
+            
+            <h2 class="cta-title" data-lang="ms">Sedia <span>Berjaya?</span></h2>
+            <h2 class="cta-title" data-lang="en">Ready To <span>Succeed?</span></h2>
+            
+            <p class="cta-desc" data-lang="ms">Hubungi kami sekarang dan mula perjalanan kejayaan anda bersama CLYVANT!</p>
+            <p class="cta-desc" data-lang="en">Contact us now and start your success journey with CLYVANT!</p>
+            
+            <a href="https://wa.me/60109329876" target="_blank" class="cta-button">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                +60 10-932 9876
+            </a>
+            
+            <p class="cta-email">
+                <span data-lang="ms">Atau email:</span>
+                <span data-lang="en">Or email:</span>
+                <a href="mailto:info@clyvant.com">info@clyvant.com</a>
+            </p>
+            
+            <div class="company-badge">
+                <div class="company-name">CLYVANT SDN BHD</div>
+                <div class="company-reg" data-lang="ms">🇲🇾 Syarikat Berdaftar Malaysia</div>
+                <div class="company-reg" data-lang="en">🇲🇾 Registered Malaysian Company</div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">CLYVANT</div>
+        <div class="footer-tagline">WHERE IDEAS TURN INTO IMPACT</div>
+        <div class="footer-contact">
+            <a href="https://wa.me/60109329876">+60 10-932 9876</a> · 
+            <a href="mailto:info@clyvant.com">info@clyvant.com</a>
+        </div>
+        <div class="footer-copyright">© 2026 CLYVANT SDN BHD. All rights reserved.</div>
+    </footer>
+    
+    <script>
+        function setLang(lang) {
+            document.body.classList.remove('lang-en', 'lang-ms');
+            if (lang === 'en') {
+                document.body.classList.add('lang-en');
+                document.getElementById('btnEn').classList.add('active');
+                document.getElementById('btnMs').classList.remove('active');
+            } else {
+                document.getElementById('btnMs').classList.add('active');
+                document.getElementById('btnEn').classList.remove('active');
+            }
+            localStorage.setItem('clyvant-lang', lang);
+        }
+        
+        const savedLang = localStorage.getItem('clyvant-lang');
+        if (savedLang) setLang(savedLang);
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.achievement-card, .brand-card, .benefit-card, .reward-card, .stat-card, .leader-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
