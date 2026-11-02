@@ -217,7 +217,7 @@ export default async function comp(S) {
   const end = UI.endCard(dom, { follow: T.follow, sub: T.follow_sub, question: T.question, y: 700 });
   const src = UI.sourceLine(dom, T.source);
   const src2 = UI.sourceLine(dom, T.source2 || T.source);
-  const rent = UI.header(dom, T.rentfree, { y: 330, size: 60 });
+  const rent = UI.header(dom, T.rentfree, { y: 330, size: T.rentfree_size || 60 });
   const tags = [T.tag1 || 'what they said', T.tag2 || 'their hair', T.tag3 || 'their voice', T.tag4 || 'their mistakes'].map((txt) =>
     el('div', { text: txt, style: { padding: '14px 26px', borderRadius: '40px', background: 'rgba(11,13,18,0.8)', border: '2px solid rgba(255,200,61,0.55)', color: '#EDEAE4', fontWeight: '700', fontSize: '34px', whiteSpace: 'nowrap' } }, dom));
   const tagPos = [[300, 380], [760, 450], [330, 540], [740, 620]];

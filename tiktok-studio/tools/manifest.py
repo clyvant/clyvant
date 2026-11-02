@@ -25,7 +25,7 @@ def probe(path):
 
 def loudness(path):
     err = subprocess.run(["ffmpeg", "-hide_banner", "-i", path, "-af", "ebur128=peak=true", "-vn", "-f", "null", "-"], capture_output=True, text=True).stderr
-    lufs = re.search(r"I:\s+(-?[0-9.]+) LUFS", err)
+    lufs = re.search(r"Integrated loudness:\s+I:\s+(-?[0-9.]+) LUFS", err)
     tp = re.findall(r"Peak:\s+(-?[0-9.]+) dBFS", err)
     return (float(lufs.group(1)) if lufs else None), (float(tp[-1]) if tp else None)
 
