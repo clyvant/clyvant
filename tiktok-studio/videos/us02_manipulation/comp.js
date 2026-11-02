@@ -102,7 +102,7 @@ export default async function comp(S) {
   const chapters = [1, 2, 3, 4, 5].map((n) => UI.chapter(dom, { num: `0${n}`, title: T['n' + n], y: 700 }));
   const bars1 = UI.statBars(dom, { labelA: T.s1_a, valueA: T.s1_va, labelB: T.s1_b, valueB: T.s1_vb, y: 470, max: 2, fmt: (v) => Math.max(0, Math.round(v)) + '×', colorB: UI.C.red });
   const debt = UI.stamp(dom, T.debt, { y: 560 });
-  const mentor = UI.stamp(dom, T.mentor, { y: 560, size: 56 });
+  const mentor = UI.stamp(dom, T.mentor, { y: 560, size: 46 });
   const refused = UI.stamp(dom, T.refused, { y: 560 });
   const unpred = UI.stamp(dom, T.unpred, { y: 520, size: 54, color: '#5AA2FF', rot: -5 });
   const truth = UI.header(dom, T.truth, { y: 430, size: 60 });
