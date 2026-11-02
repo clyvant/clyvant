@@ -59,7 +59,7 @@
     "item1": "the party",
     "item2": "the text",
     "item3": "3:07 AM",
-    "rentfree": "IN YOUR HEAD. NOWHERE ELSE.",
+    "rentfree": "IN YOUR HEAD.<br>NOWHERE ELSE.",
     "follow": "FOLLOW",
     "follow_sub": "for psychology that sets you free",
     "question": "What moment do you still replay?",
@@ -88,7 +88,8 @@
           "name": "whoosh_long",
           "gain": -4
         }
-      ]
+      ],
+      "captions": false
     },
     {
       "id": "study",
@@ -225,7 +226,8 @@
           "name": "tick",
           "gain": -8
         }
-      ]
+      ],
+      "pause_after": 0.5
     },
     {
       "id": "deeper",
@@ -265,7 +267,8 @@
           "name": "swish",
           "gain": -8
         }
-      ]
+      ],
+      "pause_after": 0.3
     },
     {
       "id": "replay",
@@ -291,7 +294,8 @@
           "name": "tick",
           "gain": -4
         }
-      ]
+      ],
+      "pause_after": 0.4
     },
     {
       "id": "rentfree",

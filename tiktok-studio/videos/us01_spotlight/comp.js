@@ -196,10 +196,10 @@ export default async function comp(S) {
   const kick = el('div', { html: `${T.kicker} <span style="color:#EDEAE4;opacity:.55">·</span> <span style="color:#EDEAE4">${T.title}</span>`, style: { fontWeight: '700', fontSize: '30px', letterSpacing: '0.3em', color: UI.C.gold, whiteSpace: 'nowrap' } }, dom);
   const hookHead = UI.header(dom, T.hook_text, { y: 380, size: 66, width: 840 });
   const study1 = UI.studyCard(dom, { label: T.study_label || 'STUDY', org: T.study1_org, year: T.study1_year, title: T.study1_title, authors: T.study1_authors, y: 560 });
-  const bars = UI.statBars(dom, { labelA: T.guessed, valueA: 46, labelB: T.actual, valueB: 23, y: 470 });
+  const bars = UI.statBars(dom, { labelA: T.guessed, valueA: 46, labelB: T.actual, valueB: 23, y: 470, fmt: (v) => Math.round(v) + (String(script.lang || '').startsWith('fr') ? '\u202f%' : '%') });
   const slam = UI.titleSlam(dom, { kicker: T.kicker, title: T.title, y: 640, size: T.title_size || 128, accentIndex: T.title_accent });
   const study2 = UI.studyCard(dom, { label: T.study_label || 'STUDY', org: T.study2_title, year: T.study2_year, title: T.study2_sub || '', authors: T.study2_authors, y: 520 });
-  const wave = UI.waveform(dom, { y: 600, labels: [T.wave_label || '● YOUR VOICE', T.wave_feels || 'HOW IT FEELS', T.wave_sounded || 'HOW IT SOUNDED'] });
+  const wave = UI.waveform(dom, { y: 560, w: 780, labels: [T.wave_label || '● YOUR VOICE', T.wave_feels || 'HOW IT FEELS', T.wave_sounded || 'HOW IT SOUNDED'] });
   const tiles = UI.iconTiles(dom, [{ icon: 'party', label: T.item1 }, { icon: 'text', label: T.item2 }, { icon: 'clock', label: T.item3 }], { y: 560 });
   const end = UI.endCard(dom, { follow: T.follow, sub: T.follow_sub, question: T.question, y: 700 });
   const src = UI.sourceLine(dom, T.source);
@@ -382,15 +382,15 @@ export default async function comp(S) {
     bars(t, tGuessed - 0.15, t23, tActual.end + 0.2, W('guess', 'how') - 0.1);
     slam(t, tName.start, tName.end + 0.1);
     study2(t, W('deeper', 'Another') - 0.1, tDeep.end + 0.1);
-    wave(t, tShaky.start - 0.1, tShaky.end + 0.15, tNever);
+    wave(t, tShaky.start - 0.1, tShaky.end + 0.5, tNever);
     rent(t, W('rentfree', 'nowhere') - 0.05, tFree.start - 0.05);
-    tiles(t, [W('replay', 'party') - 0.1, W('replay', 'text') - 0.1, W('replay', '3') - 0.1], tReplay.end + 0.25);
+    tiles(t, [W('replay', 'party') - 0.1, W('replay', 'text') - 0.1, W('replay', '3') - 0.1], tRent.start + 0.35);
     end(t, tCta.start + 0.05, END - 1.45, W('cta', 'tell'));
     src(t, W('study', 'psychologists'), tActual.end);
     src2(t, W('deeper', 'Another'), tShaky.end);
     tags.forEach((tg, i) => {
       const t0 = ownTimes[i + 1] - 0.05;
-      const env = vis(t, t0, tOwn.end + 0.1, 0.01, 0.25);
+      const env = vis(t, t0, tDeep.start - 0.05, 0.01, 0.25);
       const p = prog(t, t0, t0 + 0.3);
       put(tg, { x: tagPos[i][0], y: tagPos[i][1] + lerp(30, 0, E.outBack(p, 2)), o: env, s: lerp(0.7, 1, E.outBack(p, 2.2)) });
     });

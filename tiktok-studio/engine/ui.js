@@ -60,7 +60,7 @@ export function statBars(parent, { labelA, valueA, labelB, valueB, y = 640, w = 
     const p = prog(t, tShow, tShow + 0.45);
     put(card, { x, y: y + lerp(70, 0, E.outCubic(p)), o: env, s: lerp(0.94, 1, E.outCubic(p)) });
     const a = valueA * E.outCubic(prog(t, tA, tA + 1.0));
-    A.v.textContent = fmt(a);
+    A.v.textContent = t >= tA ? fmt(a) : '?';
     A.bar.style.width = (a / max) * 100 + '%';
     const pb = prog(t, tB, tB + 0.6);
     const b = valueB * E.outExpo(pb);
@@ -100,7 +100,7 @@ export function titleSlam(parent, { kicker: k, title, y = 760, size = 132, color
 }
 
 /** voice waveform on a canvas: shaky (red) -> calm (white) between tCalm0..tCalm1 */
-export function waveform(parent, { y = 700, w = 900, h = 300, labels = ['● YOUR VOICE', 'HOW IT FEELS', 'HOW IT SOUNDED'] } = {}) {
+export function waveform(parent, { y = 700, w = 900, h = 300, x = 505, labels = ['● YOUR VOICE', 'HOW IT FEELS', 'HOW IT SOUNDED'] } = {}) {
   const box = el('div', { style: { ...cardStyle(w + 60), padding: '30px' } }, parent);
   const lab = el('div', { style: { position: 'static', transform: 'none', display: 'flex', justifyContent: 'space-between', fontWeight: '700', fontSize: '26px', letterSpacing: '0.2em', color: C.dim, marginBottom: '14px' } }, box);
   lab.innerHTML = `<span>${labels[0]}</span><span id="wfstate">${labels[1]}</span>`;
@@ -111,7 +111,7 @@ export function waveform(parent, { y = 700, w = 900, h = 300, labels = ['● YOU
   return (t, t0, t1, tCalm) => {
     const env = vis(t, t0, t1, 0.3, 0.3);
     if (env <= 0) { put(box, { o: 0 }); return; }
-    put(box, { x: 540, y, o: env, s: lerp(0.95, 1, E.outCubic(prog(t, t0, t0 + 0.4))) });
+    put(box, { x, y, o: env, s: lerp(0.95, 1, E.outCubic(prog(t, t0, t0 + 0.4))) });
     const calm = E.inOutCubic(prog(t, tCalm, tCalm + 0.9));
     state.textContent = calm > 0.5 ? labels[2] : labels[1];
     state.style.color = calm > 0.5 ? C.mint : C.red;
@@ -150,7 +150,7 @@ export function iconTiles(parent, items, { y = 640 } = {}) {
       const env = vis(t, t0, tEnd, 0.01, 0.3);
       if (env <= 0) { put(b, { o: 0 }); return; }
       const p = prog(t, t0, t0 + 0.35);
-      const x = 500 + (i - 1) * 290;
+      const x = 490 + (i - 1) * 290;
       put(b, { x, y: y + lerp(120, 0, E.outBack(p, 1.6)) + Math.sin(t * 1.6 + i) * 6, o: env * Math.min(1, p * 2), r: lerp((i - 1) * 12, (i - 1) * 3, E.outCubic(p)), s: lerp(0.6, 1, E.outBack(p, 1.8)) });
     });
   };

@@ -1,6 +1,6 @@
 {
   "id": "fr01_effet_projecteur",
-  "title": "Personne n'a rien remarqué (l'effet projecteur)",
+  "title": "La plupart n'ont rien remarqué (l'effet projecteur)",
   "lang": "fr-FR",
   "fps": 30,
   "lead_in": 0.1,
@@ -46,7 +46,7 @@
     ]
   },
   "anchors": {
-    "They": "Presque",
+    "They": "plupart",
     "psychologists": "psychologues",
     "room": "salle",
     "embarrassing": "franchement",
@@ -69,7 +69,7 @@
     "freedom": "libération",
     "stop": "arrêter",
     "tell": "dis-moi",
-    "less": "moins",
+    "less": "bien",
     "nowhere": "nulle",
     "3": "trois",
     "how": "combien"
@@ -85,8 +85,8 @@
     "study1_year": "2000",
     "study1_authors": "Gilovich · Medvec · Savitsky",
     "study1_title": "L'effet projecteur dans le jugement social",
-    "guessed": "ILS ONT ESTIMÉ",
-    "actual": "ONT VRAIMENT REMARQUÉ",
+    "guessed": "LEUR ESTIMATION",
+    "actual": "LE VRAI CHIFFRE",
     "study2_title": "L'ILLUSION DE TRANSPARENCE",
     "study2_year": "2003",
     "study2_authors": "Savitsky · Gilovich",
@@ -106,15 +106,15 @@
     "question": "Quel moment tu rejoues encore ?",
     "source": "Source : Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology 78(2), 211–222",
     "source2": "Source : Savitsky & Gilovich (2003), Journal of Experimental Social Psychology 39, 618–625",
-    "rentfree": "DANS TA TÊTE. NULLE PART AILLEURS."
+    "rentfree": "DANS TA TÊTE.<br>NULLE PART AILLEURS."
   },
   "beats": [
     {
       "id": "hook",
-      "vo": "Tu crois que tout le monde l'a remarqué. Presque personne ne l'a vu.",
+      "vo": "Tu crois que tout le monde l'a remarqué. La plupart, non.",
       "emph": [
         "remarqué",
-        "personne"
+        "plupart"
       ],
       "pause_after": 0.45,
       "sfx": [
@@ -124,15 +124,16 @@
           "gain": -2
         },
         {
-          "at": "word:Presque",
+          "at": "word:plupart",
           "name": "whoosh_long",
           "gain": -4
         }
-      ]
+      ],
+      "captions": false
     },
     {
       "id": "study",
-      "vo": "Dans une étude de 2000, des psychologues de l'université Cornell ont demandé à des étudiants d'entrer dans une salle d'inconnus, avec un t-shirt franchement gênant.",
+      "vo": "Dans une étude de 2000, des psychologues de l'université Cornell ont demandé à des étudiants d'entrer dans une salle où quelques inconnus remplissaient un questionnaire, avec un t-shirt franchement gênant.",
       "emph": [
         "2000",
         "Cornell",
@@ -158,7 +159,7 @@
     },
     {
       "id": "guess",
-      "vo": "Ensuite, ils leur ont demandé : combien de personnes ont remarqué ce qu'il y avait sur ton t-shirt ? Les étudiants ont estimé : à peu près la moitié.",
+      "vo": "Ensuite, ils leur ont demandé : combien de personnes se souvenaient de ce qu'il y avait sur ton t-shirt ? Les étudiants ont estimé : à peu près la moitié.",
       "emph": [
         "moitié"
       ],
@@ -177,7 +178,7 @@
         "vingt-trois"
       ],
       "replace": {
-        "vingt-trois": "23 %",
+        "vingt-trois": "23 %",
         "pour": "",
         "cent": ""
       },
@@ -263,7 +264,8 @@
           "name": "tick",
           "gain": -8
         }
-      ]
+      ],
+      "pause_after": 0.5
     },
     {
       "id": "deeper",
@@ -303,7 +305,8 @@
           "name": "swish",
           "gain": -8
         }
-      ]
+      ],
+      "pause_after": 0.3
     },
     {
       "id": "replay",
@@ -329,7 +332,8 @@
           "name": "tick",
           "gain": -4
         }
-      ]
+      ],
+      "pause_after": 0.4
     },
     {
       "id": "rentfree",
