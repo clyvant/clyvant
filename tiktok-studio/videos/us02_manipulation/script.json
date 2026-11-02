@@ -82,7 +82,7 @@
     "src3": "Cialdini et al. (1975), J. Personality & Social Psychology 31(2)",
     "src4": "Ferster & Skinner (1957), Schedules of Reinforcement · Dutton & Painter (1981), Victimology 6",
     "src5": "Freyd (1997), Feminism & Psychology 7(1)",
-    "mentor": "2 YEARS OF MENTORING",
+    "mentor": "2 HOURS A WEEK · 2 YEARS",
     "refused": "EVERYONE REFUSED",
     "unpred": "UNPREDICTABLE REWARDS",
     "truth": "THE UNCOMFORTABLE TRUTH"
@@ -258,7 +258,7 @@
     },
     {
       "id": "t3",
-      "vo": "Ask for something huge, get rejected, then ask for what you actually wanted. Cialdini's team asked students to mentor young offenders for two years. Everyone refused.",
+      "vo": "Ask for something huge, get rejected, then ask for what you actually wanted. Cialdini's team asked students to counsel young offenders two hours a week, for two years. Everyone refused.",
       "emph": [
         "huge",
         "rejected",
@@ -274,26 +274,32 @@
     },
     {
       "id": "t3b",
-      "vo": "Then they asked for a two hour trip to the zoo, and fifty percent said yes. Asked directly? Seventeen percent.",
+      "vo": "Asked directly, only seventeen percent said yes. But after the big no? Fifty percent.",
       "emph": [
-        "fifty",
-        "Seventeen"
+        "seventeen",
+        "Fifty"
       ],
       "replace": {
-        "fifty": "50%",
-        "Seventeen": "17%",
+        "seventeen": "17%",
+        "Fifty": "50%",
         "percent": ""
       },
       "sfx": [
         {
-          "at": "word:fifty",
-          "name": "impact_soft",
-          "gain": -5
-        },
-        {
-          "at": "word:Seventeen",
+          "at": "word:seventeen",
           "name": "pop_low",
           "gain": -6
+        },
+        {
+          "at": "word:Fifty",
+          "name": "riser",
+          "gain": -9,
+          "offset": -1.5
+        },
+        {
+          "at": "word:Fifty",
+          "name": "impact",
+          "gain": -4
         }
       ]
     },
@@ -347,7 +353,7 @@
     },
     {
       "id": "t4b",
-      "vo": "That's why the person who's hardest to read can feel the hardest to leave.",
+      "vo": "One theory, called traumatic bonding, says that's why the person who's hardest to read can feel the hardest to leave.",
       "emph": [
         "hardest",
         "leave"

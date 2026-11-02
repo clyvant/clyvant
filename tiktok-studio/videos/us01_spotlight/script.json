@@ -1,6 +1,6 @@
 {
   "id": "us01_spotlight",
-  "title": "Nobody noticed (the Spotlight Effect)",
+  "title": "Most people never noticed (the Spotlight Effect)",
   "lang": "en-US",
   "fps": 30,
   "lead_in": 0.1,
@@ -59,7 +59,7 @@
     "item1": "the party",
     "item2": "the text",
     "item3": "3:07 AM",
-    "rentfree": "IN YOUR HEAD.<br>NOWHERE ELSE.",
+    "rentfree": "IN YOUR HEAD.<br>ALMOST NOWHERE ELSE.",
     "follow": "FOLLOW",
     "follow_sub": "for psychology that sets you free",
     "question": "What moment do you still replay?",
@@ -71,7 +71,7 @@
   "beats": [
     {
       "id": "hook",
-      "vo": "You think everyone noticed. They didn't.",
+      "vo": "You think everyone noticed. Most didn't.",
       "emph": [
         "everyone",
         "didn't"
@@ -84,7 +84,7 @@
           "gain": -2
         },
         {
-          "at": "word:They",
+          "at": "0.25",
           "name": "whoosh_long",
           "gain": -4
         }
@@ -180,7 +180,7 @@
     },
     {
       "id": "center",
-      "vo": "Your brain is the only one standing at the center of your life, so it assumes everyone else is looking at the center too.",
+      "vo": "You're the only one standing at the center of your own life, so your brain assumes everyone else is looking there too.",
       "emph": [
         "center",
         "everyone"

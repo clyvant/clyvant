@@ -165,7 +165,7 @@ export default async function comp(S) {
     { t: tRej - 0.05, p: [80 - 0.2, 1.75, 4.2], l: [80, 1.5, -0.3], fov: 40, e: 'linear' },
     { t: tRej + 0.25, p: [80 - 0.15, 1.7, 3.4], l: [80, 1.5, -0.3], fov: 42, e: 'outExpo' },
     { t: tb.t3.end, p: [80 + 0.8, 1.9, 4.6], l: [80, 1.4, 0], fov: 40, e: 'inOutSine' },
-    { t: tb.t3b.start - 0.03, p: [80 + 2.6, 1.7, 5.2], l: [80, 1.3, 0], fov: 38, cut: true },
+    { t: tb.t3b.start - 0.03, p: [82.2, 1.7, 5.2], l: [80, 1.5, 0], fov: 38, cut: true },
     { t: tb.n4.start, p: [80 + 1.6, 1.6, 4.2], l: [80, 1.3, 0], fov: 38, e: 'linear' },
   ]);
   const camSlot = camPath(camera, [
@@ -278,12 +278,12 @@ export default async function comp(S) {
     ['n1', 'n2', 'n3', 'n4', 'n5'].forEach((id, i) => chapters[i](t, tb[id].start - 0.02, tb[id].end + 0.42));
     bars1(t, tTwice - 0.5, tTwice, tb.t1.end + 0.2);
     debt(t, tDebt - 0.05, tb.t1b.end + 0.25);
-    mentor(t, W('t3', 'mentor') - 0.05, tRef - 0.15);
+    mentor(t, W('t3', 'counsel') - 0.05, tRef - 0.15);
     refused(t, tRef - 0.05, tb.t3.end + 0.3);
     unpred(t, W('t4', 'unpredictable') - 0.05, tSlot - 0.3);
     truth(t, tb.close.start, tScript - 0.3);
     bars2(t, tSev - 0.3, t76, tb.t2b.end + 0.25);
-    bars3(t, tFifty - 0.25, tFifty, tb.t3b.end + 0.25);
+    bars3(t, tS17 - 0.25, tFifty, tb.t3b.end + 0.25);
     // bars3: the "B" bar is the 50% after-no; the direct-ask 17% shows first as A
     const hc = vis(t, tKind - 0.05, W('t4', 'unpredictable') - 0.15, 0.05, 0.2);
     put(hotcold, { x: 540, y: 520, o: hc });

@@ -16,10 +16,10 @@
       "similarity_boost": 0.8,
       "style": 0.22,
       "use_speaker_boost": true,
-      "speed": 0.95
+      "speed": 0.92
     },
     "kokoro_voice": "ff_siwis",
-    "kokoro_speed": 1.0,
+    "kokoro_speed": 0.93,
     "kokoro_lang": "fr-fr"
   },
   "music": {
@@ -46,7 +46,6 @@
     ]
   },
   "anchors": {
-    "They": "plupart",
     "psychologists": "psychologues",
     "room": "salle",
     "embarrassing": "franchement",
@@ -69,10 +68,13 @@
     "freedom": "libération",
     "stop": "arrêter",
     "tell": "dis-moi",
-    "less": "bien",
+    "less": "plupart",
     "nowhere": "nulle",
     "3": "trois",
-    "how": "combien"
+    "how": "combien",
+    "Most": "plupart",
+    "sure": "sûrs",
+    "everyone": "tout"
   },
   "ui": {
     "kicker": "PSYCHOLOGIE",
@@ -106,7 +108,7 @@
     "question": "Quel moment tu rejoues encore ?",
     "source": "Source : Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology 78(2), 211–222",
     "source2": "Source : Savitsky & Gilovich (2003), Journal of Experimental Social Psychology 39, 618–625",
-    "rentfree": "DANS TA TÊTE.<br>NULLE PART AILLEURS."
+    "rentfree": "DANS TA TÊTE.<br>PRESQUE NULLE PART AILLEURS."
   },
   "beats": [
     {
@@ -124,7 +126,7 @@
           "gain": -2
         },
         {
-          "at": "word:plupart",
+          "at": "0.25",
           "name": "whoosh_long",
           "gain": -4
         }
@@ -199,7 +201,7 @@
     },
     {
       "id": "name",
-      "vo": "Les psychologues appellent ça l'effet projecteur.",
+      "vo": "Les psychologues appellent ça l'effet de projecteur.",
       "emph": [
         "projecteur"
       ],
@@ -219,7 +221,7 @@
     },
     {
       "id": "center",
-      "vo": "Ton cerveau est le seul à se tenir au centre de ta vie. Alors il suppose que tout le monde regarde le centre, lui aussi.",
+      "vo": "Ton cerveau, lui, est toujours au centre de ta vie. Alors il part du principe que tout le monde regarde le centre, lui aussi.",
       "emph": [
         "centre"
       ],
@@ -269,7 +271,7 @@
     },
     {
       "id": "deeper",
-      "vo": "Et ça va plus loin. Une autre étude a placé des gens stressés devant un public. Ils étaient sûrs que leur stress se voyait. Le public en a vu bien moins qu'eux.",
+      "vo": "Et ça va plus loin. Une autre étude a fait parler des gens stressés devant un public. Ils étaient sûrs que leur stress se voyait. Le public en a vu bien moins qu'eux.",
       "emph": [
         "loin",
         "bien",
@@ -301,7 +303,7 @@
       ],
       "sfx": [
         {
-          "at": "word:moins",
+          "at": "word:plupart",
           "name": "swish",
           "gain": -8
         }

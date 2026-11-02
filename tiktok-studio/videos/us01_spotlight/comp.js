@@ -64,6 +64,18 @@ export default async function comp(S) {
   const heroShadow = makeBlobShadow(0.55, 0.9);
   heroShadow.position.set(0, 1.012, 0.42);
   theatre.add(heroShadow);
+  // "everyone else is looking at the center too": dim silhouettes ring the pool during the god's-eye shot
+  const ring = new THREE.Group(); theatre.add(ring);
+  const ringFigs = [];
+  for (let i = 0; i < 7; i++) {
+    const a = (i / 7) * Math.PI * 2 + 0.3;
+    const m = makeMannequin({ color: 0x3a3e46 });
+    m.group.position.set(Math.sin(a) * 2.3, 1.0, 0.45 + Math.cos(a) * 2.3);
+    m.group.rotation.y = Math.atan2(-Math.sin(a), -Math.cos(a));
+    m.pose({ sad: 0.25 });
+    for (const mat of Object.values(m.mats)) { mat.transparent = true; mat.opacity = 0; mat.depthWrite = false; }
+    ring.add(m.group); ringFigs.push(m);
+  }
 
   const apex = new THREE.Vector3(0, 10.5, 2.6), target = new THREE.Vector3(0, 1.0, 0.45);
   const dir = target.clone().sub(apex);
@@ -104,7 +116,7 @@ export default async function comp(S) {
   // which people "noticed": 50% guessed (white), 23% actual (gold)
   const P = aud.people.length;
   const order = aud.people.map((_, i) => i).sort((a, b) => mulberry32(a * 7 + 3)() - mulberry32(b * 7 + 3)());
-  const guessSet = new Set(order.slice(0, Math.round(P * 0.5)));
+  const guessSet = new Set(order.slice(0, Math.round(P * 0.46)));
   const actualSet = new Set(order.slice(0, Math.round(P * 0.23)));
   const cBase = new THREE.Color(0x3b3f47), cDim = new THREE.Color(0x1d1f24), cGuess = new THREE.Color(0xdfe5ee), cGold = new THREE.Color(0xffc83d);
   const cTmp = new THREE.Color();
@@ -150,7 +162,7 @@ export default async function comp(S) {
   });
 
   // ------------------------------------------------------------------ timing
-  const tHook = B('hook'), tThey = W('hook', 'They');
+  const tHook = B('hook'), tThey = W('hook', 'Most');
   const tStudy = B('study'), tStrangers = W('study', 'room'), tShirt = W('study', 'embarrassing');
   const tGuess = B('guess'), tHalf = W('guess', 'half'), tGuessed = W('guess', 'guessed');
   const tActual = B('actual'), t23 = W('actual', 'twenty');
@@ -169,14 +181,15 @@ export default async function comp(S) {
   // ------------------------------------------------------------------ camera
   const theatreCam = camPath(camera, [
     { t: 0, p: [0, 2.2, 8.4], l: [0, 3.15, 0.4], fov: 36 },
-    { t: tThey - 0.05, p: [0, 2.3, 6.9], l: [0, 3.05, 0.4], fov: 35, e: 'linear' },
-    { t: tThey + 1.5, p: [0, 8.0, 23.5], l: [0, 1.8, 2.5], fov: 42, e: 'outCubic' },
+    { t: 0.35, p: [0, 2.3, 6.9], l: [0, 3.05, 0.4], fov: 35, e: 'linear' },
+    { t: tThey + 0.6, p: [0, 8.0, 23.5], l: [0, 1.8, 2.5], fov: 42, e: 'outCubic' },
     { t: tStrangers - 0.4, p: [0.6, 7.2, 21], l: [0, 1.9, 2.5], fov: 41 },
     { t: tStrangers + 1.4, p: [2.6, 4.4, 15.5], l: [0, 2.3, 0.4], fov: 38 },
     { t: tShirt + 1.0, p: [1.2, 3.4, 11.2], l: [0, 2.4, 0.4], fov: 33 },
     { t: tGuess.start + 0.2, p: [1.0, 3.3, 10.6], l: [0, 2.4, 0.4], fov: 33 },
     { t: tGuess.start + 0.25, p: [-0.9, 2.7, -2.4], l: [-0.3, 2.3, 8.5], fov: 46, cut: true },
-    { t: tActual.end, p: [-0.8, 2.65, -1.9], l: [-0.25, 2.25, 8.5], fov: 44, e: 'linear' },
+    { t: tGuessed - 0.3, p: [0.7, 2.25, -0.4], l: [0.25, 2.15, 8.5], fov: 40, cut: true },
+    { t: tActual.end, p: [0.6, 2.2, -0.1], l: [0.2, 2.1, 8.5], fov: 39, e: 'linear' },
     { t: tName.start - 0.05, p: [0.3, 1.55, 2.45], l: [0, 10.5, 2.6], fov: 52, cut: true },
     { t: tName.end + 0.2, p: [0.2, 1.75, 2.4], l: [0, 10.5, 2.6], fov: 46, e: 'linear' },
     // deeper: chest/face close-up
@@ -220,6 +233,7 @@ export default async function comp(S) {
   S.flash(0.06, 0.22, 0.55);
   S.shake(0.1, 0.55, 9);
   S.punch(tThey, 0.5, 0.05);
+  S.punch(W('deeper', 'sure'), 0.4, 0.04);
   S.flash(tShirt, 0.2, 0.35, '#FFC83D');
   S.flash(t23, 0.26, 0.4, '#FFC83D');
   S.shake(t23, 0.45, 12);
@@ -244,7 +258,7 @@ export default async function comp(S) {
     // spotlight on/off: on from frame 0; off at "lonely"; back on for loop tail
     let spot = 1;
     if (t >= tLonely && !loopBack) spot = 1 - E.outCubic(prog(t, tLonely, tLonely + 0.25));
-    if (loopBack) spot = E.outExpo(prog(t, END - 0.9, END - 0.75));
+    if (loopBack) spot = E.outExpo(prog(t, END - 1.2, END - 1.05));
     const flick = t < 0.25 ? (Math.floor(t * 30) % 3 === 1 ? 0.35 : 1) : 1; // ignition flicker
     cone.material.uniforms.intensity.value = 0.32 * spot * flick;
     key.intensity = 9 * spot * flick;
@@ -291,12 +305,16 @@ export default async function comp(S) {
       hero.walk(walkT * 6.2, clamp(walkT * 2), 0.0);
     }
     heroShadow.position.set(hero.group.position.x, 1.012, hero.group.position.z + 0.02);
+    const tEveryone = W('center', 'everyone');
+    const ringK = t >= tCenter.start && t < tOwn.start ? Math.min(E.outCubic(prog(t, tEveryone - 0.2, tEveryone + 0.8)), 1 - E.inCubic(prog(t, tOwn.start - 0.5, tOwn.start - 0.05))) : 0;
+    ring.visible = ringK > 0.001;
+    if (ring.visible) for (const m of ringFigs) for (const mat of Object.values(m.mats)) mat.opacity = 0.6 * ringK;
     pool.position.z = 0.45;
 
     // audience
     const audOn = t >= tStrangers && t < tName.start;
     aud.peopleGroup.visible = audOn;
-    house.intensity = audOn ? 1.0 : t < tStrangers ? 1.25 * prog(t, tThey, tThey + 1.2) : 0.0;
+    house.intensity = audOn ? 1.0 : t < tStrangers ? 1.25 * prog(t, 0.4, 1.6) : 0.0;
     if (audOn) {
       const g1 = prog(t, tHalf - 0.1, tHalf + 0.5);
       const g2 = prog(t, t23, t23 + 0.18);
@@ -374,7 +392,7 @@ export default async function comp(S) {
       vis(t, W('deeper', 'Another') - 0.2, tShaky.end, 0.3, 0.3) * 0.45,
       vis(t, tReplay.start, tReplay.end + 0.2, 0.3, 0.3) * 0.45,
       vis(t, tCta.start, END - 1.4, 0.4, 0.3) * 0.45,
-      t >= END - 1.4 && t < END - 0.85 ? 1 - prog(t, END - 1.4, END - 1.36) * 0 : 0,
+      t >= END - 1.4 && t < END - 1.2 ? 1 : 0,
     );
     dark.style.opacity = String(cardDark);
     dark.style.display = cardDark > 0.002 ? '' : 'none';

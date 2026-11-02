@@ -324,6 +324,9 @@ def main():
         fb = vcfg.get("fallback", "kokoro")
         log(f"ELEVENLABS_API_KEY not set -> falling back to {fb}")
         provider = fb
+    if provider == "elevenlabs" and not vcfg.get("el_voice_id") and str(vcfg.get("el_voice_name", "")).startswith("REPLACE"):
+        provider = vcfg.get("fallback", "kokoro")
+        log(f"voice.el_voice_name is a placeholder -> falling back to {provider}; set el_voice_id or el_voice_name to a licensed native voice")
     lang = script.get("lang", "en-US")
     tts = ElevenLabsProvider(vcfg, lang) if provider == "elevenlabs" else KokoroProvider(vcfg, lang)
     log(f"voice: {tts.label}")
