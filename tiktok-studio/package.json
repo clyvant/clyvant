@@ -1,0 +1,11 @@
+{
+  "name": "clyvant-tiktok-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Code-rendered faceless TikTok videos: Playwright frame-stepped HTML/Three.js scenes + TTS voice-over + procedural SFX, muxed with ffmpeg.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "three": "0.170.0",
+    "@fontsource/poppins": "5.1.0"
+  }
+}

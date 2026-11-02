@@ -1,0 +1,466 @@
+{
+  "id": "us02_manipulation",
+  "title": "5 psychology tricks people use on you",
+  "lang": "en-US",
+  "fps": 30,
+  "lead_in": 0.1,
+  "pause": 0.2,
+  "tail": 1.3,
+  "voice": {
+    "provider": "elevenlabs",
+    "fallback": "kokoro",
+    "el_voice_name": "Brian",
+    "el_model": "eleven_multilingual_v2",
+    "el_settings": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.32,
+      "use_speaker_boost": true,
+      "speed": 1.0
+    },
+    "kokoro_voice": "am_michael:0.6+am_fenrir:0.4",
+    "kokoro_speed": 1.03
+  },
+  "music": {
+    "bpm": 76,
+    "db": -19,
+    "sections": [
+      {
+        "t": 0,
+        "mood": "tension"
+      },
+      {
+        "beat": "close",
+        "offset": -0.4,
+        "mood": "dark_piano"
+      },
+      {
+        "beat": "cta",
+        "mood": "uplift"
+      }
+    ]
+  },
+  "ui": {
+    "kicker": "DARK PSYCHOLOGY",
+    "hook_text": "5 psychology tricks people<br>use on you <span style=\"color:#FF4D4D\">every day</span>",
+    "n1": "THE FREE GIFT",
+    "n2": "FOOT IN THE DOOR",
+    "n3": "DOOR IN THE FACE",
+    "n4": "HOT AND COLD",
+    "n5": "THE REVERSAL",
+    "s1_a": "GOT NOTHING",
+    "s1_b": "GOT A FREE COKE",
+    "s1_va": 1,
+    "s1_vb": 2,
+    "s1_unit": "× TICKETS BOUGHT",
+    "s2_a": "BIG ASK ONLY",
+    "s2_b": "SMALL YES FIRST",
+    "s2_va": 17,
+    "s2_vb": 76,
+    "s3_a": "ASKED DIRECTLY",
+    "s3_b": "AFTER A BIG 'NO'",
+    "s3_va": 17,
+    "s3_vb": 50,
+    "debt": "DEBT YOU NEVER AGREED TO",
+    "kind": "KIND",
+    "distant": "DISTANT",
+    "victim": "VICTIM",
+    "offender": "OFFENDER",
+    "darvo": [
+      "DENY",
+      "ATTACK",
+      "REVERSE",
+      "VICTIM &",
+      "OFFENDER"
+    ],
+    "defense": "KNOW THE SCRIPT",
+    "save": "SAVE THIS",
+    "save_sub": "for the next time something feels off",
+    "question": "Which one has been used on you?",
+    "src1": "Regan (1971), J. Experimental Social Psychology 7",
+    "src2": "Freedman & Fraser (1966), J. Personality & Social Psychology 4(2)",
+    "src3": "Cialdini et al. (1975), J. Personality & Social Psychology 31(2)",
+    "src4": "Skinner (1957), Schedules of Reinforcement · Dutton & Painter (1981)",
+    "src5": "Freyd (1997), Feminism & Psychology 7(1)"
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "vo": "Five psychology tricks people use on you every day. Number four is why you can't walk away from someone who's bad for you.",
+      "emph": [
+        "Five",
+        "four",
+        "walk",
+        "away"
+      ],
+      "replace": {
+        "Five": "5",
+        "four": "4"
+      },
+      "pause_after": 0.4,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "boom",
+          "gain": -3
+        },
+        {
+          "at": "word:Number",
+          "name": "glitch",
+          "gain": -8
+        },
+        {
+          "at": "word:walk",
+          "name": "whoosh",
+          "gain": -8
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "vo": "One. The free gift.",
+      "captions": false,
+      "pause_after": 0.25,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "start",
+          "name": "whoosh2",
+          "gain": -8
+        }
+      ]
+    },
+    {
+      "id": "t1",
+      "vo": "In 1971, a researcher gave people a free can of Coke, then asked them to buy raffle tickets. They bought about twice as many as people who got nothing.",
+      "emph": [
+        "free",
+        "twice"
+      ],
+      "replace": {
+        "twice": "2×"
+      },
+      "sfx": [
+        {
+          "at": "word:Coke",
+          "name": "pop",
+          "gain": -6
+        },
+        {
+          "at": "word:twice",
+          "name": "impact_soft",
+          "gain": -5
+        }
+      ]
+    },
+    {
+      "id": "t1b",
+      "vo": "That free sample isn't generosity. It's a debt you never agreed to.",
+      "emph": [
+        "debt"
+      ],
+      "sfx": [
+        {
+          "at": "word:debt",
+          "name": "stamp",
+          "gain": -4
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "vo": "Two. The foot in the door.",
+      "captions": false,
+      "pause_after": 0.25,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "start",
+          "name": "whoosh2",
+          "gain": -8
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "vo": "Researchers asked homeowners to put a huge, ugly Drive Carefully sign on their lawn. Only seventeen percent said yes.",
+      "emph": [
+        "huge",
+        "seventeen"
+      ],
+      "replace": {
+        "seventeen": "17%",
+        "percent": ""
+      },
+      "sfx": [
+        {
+          "at": "word:seventeen",
+          "name": "pop_low",
+          "gain": -5
+        }
+      ]
+    },
+    {
+      "id": "t2b",
+      "vo": "But people who had agreed to a tiny sign two weeks earlier? Seventy-six percent.",
+      "emph": [
+        "tiny",
+        "Seventy-six"
+      ],
+      "replace": {
+        "Seventy-six": "76%",
+        "percent": ""
+      },
+      "pause_after": 0.3,
+      "sfx": [
+        {
+          "at": "word:Seventy",
+          "name": "riser",
+          "gain": -9,
+          "offset": -2.0
+        },
+        {
+          "at": "word:Seventy",
+          "name": "impact",
+          "gain": -3
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "vo": "Three. The door in the face.",
+      "captions": false,
+      "pause_after": 0.25,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "word:face",
+          "name": "boom",
+          "gain": -6
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "vo": "Ask for something huge, get rejected, then ask for what you actually wanted. Cialdini's team asked students to mentor young offenders for two years. Everyone refused.",
+      "emph": [
+        "huge",
+        "rejected",
+        "refused"
+      ],
+      "sfx": [
+        {
+          "at": "word:refused",
+          "name": "error",
+          "gain": -8
+        }
+      ]
+    },
+    {
+      "id": "t3b",
+      "vo": "Then they asked for a two hour trip to the zoo, and fifty percent said yes. Asked directly? Seventeen percent.",
+      "emph": [
+        "fifty",
+        "Seventeen"
+      ],
+      "replace": {
+        "fifty": "50%",
+        "Seventeen": "17%",
+        "percent": ""
+      },
+      "sfx": [
+        {
+          "at": "word:fifty",
+          "name": "impact_soft",
+          "gain": -5
+        },
+        {
+          "at": "word:Seventeen",
+          "name": "pop_low",
+          "gain": -6
+        }
+      ]
+    },
+    {
+      "id": "n4",
+      "vo": "Four. Hot and cold.",
+      "captions": false,
+      "pause_after": 0.25,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "word:cold",
+          "name": "whoosh_long",
+          "gain": -9
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "vo": "Kind one day, distant the next. Since B. F. Skinner, psychologists have known that unpredictable rewards build the most stubborn habits. It's the same pull as a slot machine.",
+      "emph": [
+        "unpredictable",
+        "slot",
+        "machine"
+      ],
+      "replace": {
+        "B": "B.F.",
+        "F": ""
+      },
+      "sfx": [
+        {
+          "at": "word:Kind",
+          "name": "shimmer",
+          "gain": -12
+        },
+        {
+          "at": "word:distant",
+          "name": "whoosh2",
+          "gain": -10
+        },
+        {
+          "at": "word:slot",
+          "name": "riser_short",
+          "gain": -10
+        }
+      ]
+    },
+    {
+      "id": "t4b",
+      "vo": "That's why the person who's hardest to read can feel the hardest to leave.",
+      "emph": [
+        "hardest",
+        "leave"
+      ],
+      "pause_after": 0.35,
+      "sfx": [
+        {
+          "at": "word:leave",
+          "name": "heartbeat",
+          "gain": -5
+        }
+      ]
+    },
+    {
+      "id": "n5",
+      "vo": "Five. The reversal.",
+      "captions": false,
+      "pause_after": 0.25,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "word:reversal",
+          "name": "glitch",
+          "gain": -7
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "vo": "You call out what they did, and somehow, you end up apologizing.",
+      "emph": [
+        "apologizing"
+      ],
+      "sfx": [
+        {
+          "at": "word:apologizing",
+          "name": "whoosh2",
+          "gain": -9
+        }
+      ]
+    },
+    {
+      "id": "t5b",
+      "vo": "Psychologist Jennifer Freyd named it DARVO: deny, attack, reverse victim and offender.",
+      "emph": [
+        "DARVO"
+      ],
+      "replace": {
+        "DARVO": "DARVO"
+      },
+      "sfx": [
+        {
+          "at": "word:deny",
+          "name": "tick",
+          "gain": -4
+        },
+        {
+          "at": "word:attack",
+          "name": "tick",
+          "gain": -4
+        },
+        {
+          "at": "word:reverse",
+          "name": "tick",
+          "gain": -4
+        },
+        {
+          "at": "word:offender",
+          "name": "impact_soft",
+          "gain": -6
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "vo": "Here's the uncomfortable truth. These work on smart people too. Knowing the script is your best defense.",
+      "emph": [
+        "smart",
+        "script"
+      ],
+      "pause_after": 0.35,
+      "sfx": [
+        {
+          "at": "word:smart",
+          "name": "subdrop",
+          "gain": -7
+        },
+        {
+          "at": "word:script",
+          "name": "shimmer",
+          "gain": -9
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "vo": "Save this for the next time something feels off. Which one has been used on you? Tell me below.",
+      "emph": [
+        "Save",
+        "you"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "pop",
+          "gain": -6
+        },
+        {
+          "at": "word:Which",
+          "name": "click",
+          "gain": -6
+        }
+      ]
+    }
+  ]
+}

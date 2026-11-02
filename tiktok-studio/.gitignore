@@ -1,0 +1,6 @@
+node_modules/
+.models/
+videos/*/build/
+renders/.segs-*/
+analysis/out/
+__pycache__/
