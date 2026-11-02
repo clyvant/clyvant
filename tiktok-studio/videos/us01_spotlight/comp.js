@@ -69,7 +69,7 @@ export default async function comp(S) {
   const ringFigs = [];
   for (let i = 0; i < 7; i++) {
     const a = (i / 7) * Math.PI * 2 + 0.3;
-    const m = makeMannequin({ color: 0x3a3e46 });
+    const m = makeMannequin({ color: 0x6a7080 });
     m.group.position.set(Math.sin(a) * 2.3, 1.0, 0.45 + Math.cos(a) * 2.3);
     m.group.rotation.y = Math.atan2(-Math.sin(a), -Math.cos(a));
     m.pose({ sad: 0.25 });
@@ -308,7 +308,7 @@ export default async function comp(S) {
     const tEveryone = W('center', 'everyone');
     const ringK = t >= tCenter.start && t < tOwn.start ? Math.min(E.outCubic(prog(t, tEveryone - 0.2, tEveryone + 0.8)), 1 - E.inCubic(prog(t, tOwn.start - 0.5, tOwn.start - 0.05))) : 0;
     ring.visible = ringK > 0.001;
-    if (ring.visible) for (const m of ringFigs) for (const mat of Object.values(m.mats)) mat.opacity = 0.6 * ringK;
+    if (ring.visible) for (const m of ringFigs) for (const mat of Object.values(m.mats)) mat.opacity = 0.75 * ringK;
     pool.position.z = 0.45;
 
     // audience
