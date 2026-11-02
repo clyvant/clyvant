@@ -6,4 +6,3 @@ analysis/out/
 __pycache__/
 build/
 renders/*.mp4
-!renders/*__web.mp4
