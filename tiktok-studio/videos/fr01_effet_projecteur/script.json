@@ -1,0 +1,414 @@
+{
+  "id": "fr01_effet_projecteur",
+  "title": "La plupart n'ont rien remarqué (l'effet projecteur)",
+  "lang": "fr-FR",
+  "fps": 30,
+  "lead_in": 0.1,
+  "pause": 0.24,
+  "tail": 1.4,
+  "voice": {
+    "provider": "elevenlabs",
+    "fallback": "kokoro",
+    "el_voice_name": "REPLACE_WITH_NATIVE_FRENCH_VOICE",
+    "el_model": "eleven_multilingual_v2",
+    "el_settings": {
+      "stability": 0.5,
+      "similarity_boost": 0.8,
+      "style": 0.22,
+      "use_speaker_boost": true,
+      "speed": 0.92
+    },
+    "kokoro_voice": "ff_siwis",
+    "kokoro_speed": 0.93,
+    "kokoro_lang": "fr-fr"
+  },
+  "music": {
+    "bpm": 70,
+    "db": -18,
+    "sections": [
+      {
+        "t": 0,
+        "mood": "dark_piano"
+      },
+      {
+        "beat": "deeper",
+        "mood": "tension"
+      },
+      {
+        "beat": "rentfree",
+        "mood": "dark_piano"
+      },
+      {
+        "beat": "freedom",
+        "offset": -0.6,
+        "mood": "uplift"
+      }
+    ]
+  },
+  "anchors": {
+    "psychologists": "psychologues",
+    "room": "salle",
+    "embarrassing": "franchement",
+    "guessed": "estimé",
+    "half": "moitié",
+    "twenty": "vingt-trois",
+    "spotlight": "projecteur",
+    "own": "propre",
+    "replaying": "repenser",
+    "hair": "cheveux",
+    "voice": "voix",
+    "mistakes": "erreurs",
+    "Another": "autre",
+    "nerves": "stress",
+    "never": "même",
+    "party": "soirée",
+    "text": "message",
+    "three": "trois",
+    "lonely": "triste",
+    "freedom": "libération",
+    "stop": "arrêter",
+    "tell": "dis-moi",
+    "less": "plupart",
+    "nowhere": "nulle",
+    "3": "trois",
+    "how": "combien",
+    "Most": "plupart",
+    "sure": "sûrs",
+    "everyone": "tout"
+  },
+  "ui": {
+    "kicker": "PSYCHOLOGIE",
+    "title": "L'EFFET PROJECTEUR",
+    "title_accent": 1,
+    "title_size": 118,
+    "hook_text": "Personne ne te regarde<br><span style=\"color:#FFC83D\">autant que tu le crois.</span>",
+    "study_label": "ÉTUDE",
+    "study1_org": "UNIVERSITÉ CORNELL",
+    "study1_year": "2000",
+    "study1_authors": "Gilovich · Medvec · Savitsky",
+    "study1_title": "L'effet projecteur dans le jugement social",
+    "guessed": "LEUR ESTIMATION",
+    "actual": "LE VRAI CHIFFRE",
+    "study2_title": "L'ILLUSION DE TRANSPARENCE",
+    "study2_year": "2003",
+    "study2_authors": "Savitsky · Gilovich",
+    "study2_sub": "On croit que notre stress se voit. Il se voit bien moins qu'on ne le ressent.",
+    "tag1": "ce qu'ils ont dit",
+    "tag2": "leurs cheveux",
+    "tag3": "leur voix",
+    "tag4": "leurs erreurs",
+    "wave_label": "● TA VOIX",
+    "wave_feels": "CE QUE TU RESSENS",
+    "wave_sounded": "CE QU'ILS ONT ENTENDU",
+    "item1": "la soirée",
+    "item2": "le message",
+    "item3": "3 h 07",
+    "follow": "ABONNE-TOI",
+    "follow_sub": "pour plus de psychologie qui libère",
+    "question": "Quel moment tu rejoues encore ?",
+    "source": "Source : Gilovich, Medvec & Savitsky (2000), Journal of Personality and Social Psychology 78(2), 211–222",
+    "source2": "Source : Savitsky & Gilovich (2003), Journal of Experimental Social Psychology 39, 618–625",
+    "rentfree": "DANS TA TÊTE.<br>PRESQUE NULLE PART AILLEURS.",
+    "rentfree_size": 50
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "vo": "Tu crois que tout le monde l'a remarqué. La plupart, non.",
+      "emph": [
+        "remarqué",
+        "plupart"
+      ],
+      "pause_after": 0.45,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "boom",
+          "gain": -2
+        },
+        {
+          "at": "0.25",
+          "name": "whoosh_long",
+          "gain": -4
+        }
+      ],
+      "captions": false
+    },
+    {
+      "id": "study",
+      "vo": "Dans une étude de 2000, des psychologues de l'université Cornell ont demandé à des étudiants d'entrer dans une salle où quelques inconnus remplissaient un questionnaire, avec un t-shirt franchement gênant.",
+      "emph": [
+        "2000",
+        "Cornell",
+        "gênant"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "camera",
+          "gain": -6
+        },
+        {
+          "at": "word:Cornell",
+          "name": "stamp",
+          "gain": -6
+        },
+        {
+          "at": "word:salle",
+          "name": "whoosh2",
+          "gain": -8
+        }
+      ]
+    },
+    {
+      "id": "guess",
+      "vo": "Ensuite, ils leur ont demandé : combien de personnes se souvenaient de ce qu'il y avait sur ton t-shirt ? Les étudiants ont estimé : à peu près la moitié.",
+      "emph": [
+        "moitié"
+      ],
+      "sfx": [
+        {
+          "at": "word:moitié",
+          "name": "pop_low",
+          "gain": -4
+        }
+      ]
+    },
+    {
+      "id": "actual",
+      "vo": "Le vrai chiffre ? À peine vingt-trois pour cent.",
+      "emph": [
+        "vingt-trois"
+      ],
+      "replace": {
+        "vingt-trois": "23 %",
+        "pour": "",
+        "cent": ""
+      },
+      "pause_after": 0.45,
+      "sfx": [
+        {
+          "at": "word:vingt",
+          "name": "riser",
+          "gain": -8,
+          "offset": -2.0
+        },
+        {
+          "at": "word:vingt",
+          "name": "impact",
+          "gain": -2
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "vo": "Les psychologues appellent ça l'effet de projecteur.",
+      "emph": [
+        "projecteur"
+      ],
+      "captions": false,
+      "sfx": [
+        {
+          "at": "word:projecteur",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "word:projecteur",
+          "name": "shimmer",
+          "gain": -12
+        }
+      ]
+    },
+    {
+      "id": "center",
+      "vo": "Ton cerveau, lui, est toujours au centre de ta vie. Alors il part du principe que tout le monde regarde le centre, lui aussi.",
+      "emph": [
+        "centre"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "whoosh",
+          "gain": -9
+        }
+      ]
+    },
+    {
+      "id": "theirown",
+      "vo": "Mais non. Chacun est sous son propre projecteur : à repenser à ce qu'il a dit, à s'inquiéter de ses cheveux, de sa voix, de ses propres erreurs.",
+      "emph": [
+        "propre",
+        "projecteur"
+      ],
+      "sfx": [
+        {
+          "at": "word:propre",
+          "name": "tick",
+          "gain": -6
+        },
+        {
+          "at": "word:repenser",
+          "name": "tick",
+          "gain": -8
+        },
+        {
+          "at": "word:cheveux",
+          "name": "tick",
+          "gain": -8
+        },
+        {
+          "at": "word:voix",
+          "name": "tick",
+          "gain": -8
+        },
+        {
+          "at": "word:erreurs",
+          "name": "tick",
+          "gain": -8
+        }
+      ],
+      "pause_after": 0.5
+    },
+    {
+      "id": "deeper",
+      "vo": "Et ça va plus loin. Une autre étude a fait parler des gens stressés devant un public. Ils étaient sûrs que leur stress se voyait. Le public en a vu bien moins qu'eux.",
+      "emph": [
+        "loin",
+        "bien",
+        "moins"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "subdrop",
+          "gain": -6
+        },
+        {
+          "at": "word:autre",
+          "name": "camera",
+          "gain": -8
+        },
+        {
+          "at": "word:stress",
+          "name": "heartbeat",
+          "gain": -4
+        }
+      ]
+    },
+    {
+      "id": "shaky",
+      "vo": "Cette voix tremblante que tout le monde a forcément entendue ? La plupart des gens l'ont bien moins remarquée que tu ne le crois.",
+      "emph": [
+        "moins"
+      ],
+      "sfx": [
+        {
+          "at": "word:plupart",
+          "name": "swish",
+          "gain": -8
+        }
+      ],
+      "pause_after": 0.3
+    },
+    {
+      "id": "replay",
+      "vo": "Alors cette phrase à la soirée, ce message que tu regrettes, ce moment que tu rejoues à trois heures du matin ?",
+      "emph": [
+        "soirée",
+        "message",
+        "trois"
+      ],
+      "sfx": [
+        {
+          "at": "word:soirée",
+          "name": "whoosh2",
+          "gain": -9
+        },
+        {
+          "at": "word:message",
+          "name": "pop",
+          "gain": -8
+        },
+        {
+          "at": "word:trois",
+          "name": "tick",
+          "gain": -4
+        }
+      ],
+      "pause_after": 0.4
+    },
+    {
+      "id": "rentfree",
+      "vo": "Il vit dans ta tête. Et presque nulle part ailleurs.",
+      "emph": [
+        "nulle"
+      ],
+      "pause_after": 0.5,
+      "sfx": [
+        {
+          "at": "word:nulle",
+          "name": "impact_soft",
+          "gain": -5
+        }
+      ]
+    },
+    {
+      "id": "freedom",
+      "vo": "Ça peut sembler triste. En réalité, c'est une libération.",
+      "emph": [
+        "triste",
+        "libération"
+      ],
+      "pause_after": 0.35,
+      "sfx": [
+        {
+          "at": "word:libération",
+          "name": "shimmer",
+          "gain": -8
+        },
+        {
+          "at": "word:libération",
+          "name": "reverse_swell",
+          "gain": -10,
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "id": "living",
+      "vo": "Parce que si personne ne te regarde d'aussi près que tu le crois, tu peux enfin arrêter de jouer un rôle, et commencer à vivre.",
+      "emph": [
+        "rôle",
+        "vivre"
+      ],
+      "sfx": [
+        {
+          "at": "word:commencer",
+          "name": "whoosh_long",
+          "gain": -10
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "vo": "Abonne-toi pour plus de psychologie qui libère. Et dis-moi : c'est quoi, le moment que tu rejoues encore ?",
+      "emph": [
+        "Abonne-toi",
+        "rejoues"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "pop",
+          "gain": -6
+        },
+        {
+          "at": "word:dis-moi",
+          "name": "click",
+          "gain": -6
+        }
+      ]
+    }
+  ]
+}

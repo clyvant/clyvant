@@ -1,0 +1,373 @@
+{
+  "id": "us01_spotlight",
+  "title": "Most people never noticed (the Spotlight Effect)",
+  "lang": "en-US",
+  "fps": 30,
+  "lead_in": 0.1,
+  "pause": 0.22,
+  "tail": 1.4,
+  "voice": {
+    "provider": "elevenlabs",
+    "fallback": "kokoro",
+    "el_voice_name": "Brian",
+    "el_model": "eleven_multilingual_v2",
+    "el_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.3,
+      "use_speaker_boost": true,
+      "speed": 0.95
+    },
+    "kokoro_voice": "am_michael:0.6+am_fenrir:0.4",
+    "kokoro_speed": 0.98
+  },
+  "music": {
+    "bpm": 70,
+    "db": -18,
+    "sections": [
+      {
+        "t": 0,
+        "mood": "dark_piano"
+      },
+      {
+        "beat": "deeper",
+        "mood": "tension"
+      },
+      {
+        "beat": "rentfree",
+        "mood": "dark_piano"
+      },
+      {
+        "beat": "freedom",
+        "offset": -0.6,
+        "mood": "uplift"
+      }
+    ]
+  },
+  "ui": {
+    "kicker": "PSYCHOLOGY",
+    "title": "THE SPOTLIGHT EFFECT",
+    "study1_org": "CORNELL UNIVERSITY",
+    "study1_year": "2000",
+    "study1_authors": "Gilovich · Medvec · Savitsky",
+    "study1_title": "The Spotlight Effect in Social Judgment",
+    "guessed": "THEY GUESSED",
+    "actual": "ACTUALLY NOTICED",
+    "study2_title": "THE ILLUSION OF TRANSPARENCY",
+    "study2_authors": "Savitsky · Gilovich",
+    "study2_year": "2003",
+    "item1": "the party",
+    "item2": "the text",
+    "item3": "3:07 AM",
+    "rentfree": "IN YOUR HEAD.<br>ALMOST NOWHERE ELSE.",
+    "follow": "FOLLOW",
+    "follow_sub": "for psychology that sets you free",
+    "question": "What moment do you still replay?",
+    "source": "Source: Gilovich, Medvec & Savitsky (2000), J. Personality & Social Psychology 78(2), 211–222",
+    "study2_sub": "We think our nerves show. They show far less than we feel.",
+    "hook_text": "Nobody is watching you<br><span style=\"color:#FFC83D\">as closely as you think.</span>",
+    "source2": "Source: Savitsky & Gilovich (2003), J. Experimental Social Psychology 39, 618–625"
+  },
+  "beats": [
+    {
+      "id": "hook",
+      "vo": "You think everyone noticed. Most didn't.",
+      "emph": [
+        "everyone",
+        "didn't"
+      ],
+      "pause_after": 0.45,
+      "sfx": [
+        {
+          "at": "start",
+          "name": "boom",
+          "gain": -2
+        },
+        {
+          "at": "0.25",
+          "name": "whoosh_long",
+          "gain": -4
+        }
+      ],
+      "captions": false
+    },
+    {
+      "id": "study",
+      "vo": "In a 2000 study, psychologists at Cornell asked students to walk into a room of strangers, wearing an embarrassing T-shirt.",
+      "emph": [
+        "2000",
+        "Cornell",
+        "embarrassing"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "camera",
+          "gain": -6
+        },
+        {
+          "at": "word:Cornell",
+          "name": "stamp",
+          "gain": -6
+        },
+        {
+          "at": "word:walk",
+          "name": "whoosh2",
+          "gain": -8
+        }
+      ]
+    },
+    {
+      "id": "guess",
+      "vo": "Afterwards, they asked them: how many people noticed what was on your shirt? The students guessed about half.",
+      "emph": [
+        "half"
+      ],
+      "sfx": [
+        {
+          "at": "word:half",
+          "name": "pop_low",
+          "gain": -4
+        }
+      ]
+    },
+    {
+      "id": "actual",
+      "vo": "The real number? About twenty-three percent.",
+      "emph": [
+        "twenty-three",
+        "percent"
+      ],
+      "replace": {
+        "twenty-three": "23%",
+        "percent": ""
+      },
+      "pause_after": 0.45,
+      "sfx": [
+        {
+          "at": "word:twenty",
+          "name": "riser",
+          "gain": -8,
+          "offset": -2.0
+        },
+        {
+          "at": "word:twenty",
+          "name": "impact",
+          "gain": -2
+        }
+      ]
+    },
+    {
+      "id": "name",
+      "vo": "Psychologists call it the spotlight effect.",
+      "emph": [
+        "spotlight",
+        "effect"
+      ],
+      "captions": false,
+      "sfx": [
+        {
+          "at": "word:spotlight",
+          "name": "bass_hit",
+          "gain": -3
+        },
+        {
+          "at": "word:spotlight",
+          "name": "shimmer",
+          "gain": -12
+        }
+      ]
+    },
+    {
+      "id": "center",
+      "vo": "You're the only one standing at the center of your own life, so your brain assumes everyone else is looking there too.",
+      "emph": [
+        "center",
+        "everyone"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "whoosh",
+          "gain": -9
+        }
+      ]
+    },
+    {
+      "id": "theirown",
+      "vo": "But they're not. They're standing in their own spotlight, replaying what they said, worrying about their hair, their voice, their own mistakes.",
+      "emph": [
+        "own",
+        "spotlight"
+      ],
+      "sfx": [
+        {
+          "at": "word:own",
+          "name": "tick",
+          "gain": -6
+        },
+        {
+          "at": "word:replaying",
+          "name": "tick",
+          "gain": -8
+        },
+        {
+          "at": "word:hair",
+          "name": "tick",
+          "gain": -8
+        },
+        {
+          "at": "word:voice",
+          "name": "tick",
+          "gain": -8
+        },
+        {
+          "at": "word:mistakes",
+          "name": "tick",
+          "gain": -8
+        }
+      ],
+      "pause_after": 0.5
+    },
+    {
+      "id": "deeper",
+      "vo": "And it goes deeper. Another study put nervous people in front of an audience. They were sure their nerves showed. The audience saw far less than they felt.",
+      "emph": [
+        "deeper",
+        "far",
+        "less"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "subdrop",
+          "gain": -6
+        },
+        {
+          "at": "word:Another",
+          "name": "camera",
+          "gain": -8
+        },
+        {
+          "at": "word:nerves",
+          "name": "heartbeat",
+          "gain": -4
+        }
+      ]
+    },
+    {
+      "id": "shaky",
+      "vo": "That shaky voice you were sure everyone heard? Most people noticed far less than you think.",
+      "emph": [
+        "less"
+      ],
+      "sfx": [
+        {
+          "at": "word:less",
+          "name": "swish",
+          "gain": -8
+        }
+      ],
+      "pause_after": 0.3
+    },
+    {
+      "id": "replay",
+      "vo": "So that thing you said at the party, the text you regret, the moment you keep replaying at 3 AM?",
+      "emph": [
+        "party",
+        "text",
+        "3"
+      ],
+      "sfx": [
+        {
+          "at": "word:party",
+          "name": "whoosh2",
+          "gain": -9
+        },
+        {
+          "at": "word:text",
+          "name": "pop",
+          "gain": -8
+        },
+        {
+          "at": "word:3",
+          "name": "tick",
+          "gain": -4
+        }
+      ],
+      "pause_after": 0.4
+    },
+    {
+      "id": "rentfree",
+      "vo": "It lives in your head, and almost nowhere else.",
+      "emph": [
+        "nowhere"
+      ],
+      "pause_after": 0.5,
+      "sfx": [
+        {
+          "at": "word:nowhere",
+          "name": "impact_soft",
+          "gain": -5
+        }
+      ]
+    },
+    {
+      "id": "freedom",
+      "vo": "That might sound lonely. It's actually freedom.",
+      "emph": [
+        "lonely",
+        "freedom"
+      ],
+      "pause_after": 0.35,
+      "sfx": [
+        {
+          "at": "word:freedom",
+          "name": "shimmer",
+          "gain": -8
+        },
+        {
+          "at": "word:freedom",
+          "name": "reverse_swell",
+          "gain": -10,
+          "offset": -1.0
+        }
+      ]
+    },
+    {
+      "id": "living",
+      "vo": "Because if nobody is watching as closely as you think, you can finally stop performing, and start living.",
+      "emph": [
+        "performing",
+        "living"
+      ],
+      "sfx": [
+        {
+          "at": "word:start",
+          "name": "whoosh_long",
+          "gain": -10
+        }
+      ]
+    },
+    {
+      "id": "cta",
+      "vo": "Follow for more psychology that sets you free. And tell me, what's the moment you still replay?",
+      "emph": [
+        "Follow",
+        "replay"
+      ],
+      "sfx": [
+        {
+          "at": "start",
+          "name": "pop",
+          "gain": -6
+        },
+        {
+          "at": "word:tell",
+          "name": "click",
+          "gain": -6
+        }
+      ]
+    }
+  ]
+}
