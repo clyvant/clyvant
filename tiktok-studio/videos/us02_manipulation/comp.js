@@ -98,10 +98,14 @@ export default async function comp(S) {
   const dom = document.getElementById('dom');
   const dark = el('div', { style: { width: '1080px', height: '1920px', background: '#000' } }, dom);
   const kick = el('div', { html: `<span style="display:inline-block;width:12px;height:12px;border-radius:6px;background:#FF4D4D;margin-right:14px;vertical-align:middle"></span>${T.kicker}`, style: { fontWeight: '700', fontSize: '30px', letterSpacing: '0.3em', color: '#FF4D4D', whiteSpace: 'nowrap' } }, dom);
-  const hookHead = UI.header(dom, T.hook_text, { y: 380, size: 66 });
+  const hookHead = UI.header(dom, T.hook_text, { y: 380, size: 58 });
   const chapters = [1, 2, 3, 4, 5].map((n) => UI.chapter(dom, { num: `0${n}`, title: T['n' + n], y: 700 }));
   const bars1 = UI.statBars(dom, { labelA: T.s1_a, valueA: T.s1_va, labelB: T.s1_b, valueB: T.s1_vb, y: 470, max: 2, fmt: (v) => Math.max(0, Math.round(v)) + '×', colorB: UI.C.red });
   const debt = UI.stamp(dom, T.debt, { y: 560 });
+  const mentor = UI.stamp(dom, T.mentor, { y: 560, size: 56 });
+  const refused = UI.stamp(dom, T.refused, { y: 560 });
+  const unpred = UI.stamp(dom, T.unpred, { y: 520, size: 54, color: '#5AA2FF', rot: -5 });
+  const truth = UI.header(dom, T.truth, { y: 430, size: 60 });
   const bars2 = UI.statBars(dom, { labelA: T.s2_a, valueA: T.s2_va, labelB: T.s2_b, valueB: T.s2_vb, y: 470, colorB: UI.C.red });
   const bars3 = UI.statBars(dom, { labelA: T.s3_a, valueA: T.s3_va, labelB: T.s3_b, valueB: T.s3_vb, y: 470, colorB: UI.C.red });
   const hotcold = el('div', { style: { width: '900px', textAlign: 'center', fontWeight: '900', fontSize: '120px', letterSpacing: '-0.02em' } }, dom);
@@ -186,7 +190,7 @@ export default async function comp(S) {
     const jerk = (x, d = 0.5) => Math.exp(-((t - x) ** 2) / (d * 0.02));
     const yank = jerk(tWalk + 0.25) + 0.7 * jerk(tNum) + 0.6 * jerk(tb.n5.start + 0.6);
     const sx = Math.sin(t * 1.1) * 0.12 + vnoise(t * 0.8, 3) * 0.06, sz = Math.sin(t * 0.7 + 1) * 0.08;
-    bar.position.set(sx, 4.25 + yank * 0.18 + free * 3.5, sz);
+    bar.position.set(sx, lerp(5.6, 4.25, E.outCubic(prog(t, tb.n1.start, tb.n1.start + 0.4))) + yank * 0.18 + free * 3.5, sz);
     bar.rotation.set(Math.sin(t * 0.9) * 0.12 + yank * 0.1, 0, Math.sin(t * 1.3) * 0.15 - yank * 0.2);
     const sad = lerp(0.55, 0.0, free);
     fig.pose({ sad, breath: Math.sin(t * 1.6), lookUp: free * 0.2 });
@@ -245,7 +249,7 @@ export default async function comp(S) {
 
     // ---- slot: reels spin, stop one by one at "slot machine"
     const spin = (i) => { const stopAt = tSlot + 0.35 * i + 0.4; const tt = Math.min(t, stopAt); const w = 9 + i * 1.5; return (tt - tb.t4.start) * w + (t > stopAt ? 0 : 0) + i * 0.7; };
-    const stopTarget = [0, 1, 2].map((i) => Math.round(spin(i) / (Math.PI / 3)) * (Math.PI / 3));
+    const stopTarget = [0, 1, 2].map((i) => (Math.round(spin(i) / (Math.PI / 3) - 0.5) + 0.5) * (Math.PI / 3));
     slot.setReels([0, 1, 2].map((i) => { const stopAt = tSlot + 0.35 * i + 0.4; return t < stopAt ? spin(i) : lerp(spin(i), stopTarget[i], E.outBack(prog(t, stopAt, stopAt + 0.25), 2)); }));
     const hotK = t < tDist ? 0 : t < tSlot ? (Math.floor((t - tDist) * 2.2) % 2) : 0.5 + 0.5 * Math.sin(t * 7);
     slot.setLights(hotK, t);
@@ -256,6 +260,7 @@ export default async function comp(S) {
     const ang = sw * Math.PI;
     lv.position.set(-0.72 * Math.cos(ang), 2.3 + Math.sin(ang) * 0.55, Math.sin(ang) * 0.35);
     lo.position.set(0.72 * Math.cos(ang), 2.3 - Math.sin(ang) * 0.25, -Math.sin(ang) * 0.35);
+    lv.material.opacity = lo.material.opacity = 1 - E.outCubic(prog(t, dvTimes[0] - 0.4, dvTimes[0] - 0.1));
     pa.pose({ sad: lerp(0.1, 0.6, sw) }); pb.pose({ sad: 0.0, lookUp: 0.1 });
 
     // ---- camera
@@ -273,10 +278,14 @@ export default async function comp(S) {
     ['n1', 'n2', 'n3', 'n4', 'n5'].forEach((id, i) => chapters[i](t, tb[id].start - 0.02, tb[id].end + 0.42));
     bars1(t, tTwice - 0.5, tTwice, tb.t1.end + 0.2);
     debt(t, tDebt - 0.05, tb.t1b.end + 0.25);
+    mentor(t, W('t3', 'mentor') - 0.05, tRef - 0.15);
+    refused(t, tRef - 0.05, tb.t3.end + 0.3);
+    unpred(t, W('t4', 'unpredictable') - 0.05, tSlot - 0.3);
+    truth(t, tb.close.start, tScript - 0.3);
     bars2(t, tSev - 0.3, t76, tb.t2b.end + 0.25);
     bars3(t, tFifty - 0.25, tFifty, tb.t3b.end + 0.25);
     // bars3: the "B" bar is the 50% after-no; the direct-ask 17% shows first as A
-    const hc = vis(t, tKind - 0.05, tSlot - 0.2, 0.05, 0.2);
+    const hc = vis(t, tKind - 0.05, W('t4', 'unpredictable') - 0.15, 0.05, 0.2);
     put(hotcold, { x: 540, y: 520, o: hc });
     if (hc > 0) {
       const cold = t >= tDist - 0.05;

@@ -61,7 +61,7 @@ export default async function comp(S) {
   const hero = makeMannequin({ color: 0xc3c6cc });
   hero.group.position.set(0, 1.0, 0.4);
   theatre.add(hero.group);
-  const heroShadow = makeBlobShadow(0.55, 0.7);
+  const heroShadow = makeBlobShadow(0.55, 0.9);
   heroShadow.position.set(0, 1.012, 0.42);
   theatre.add(heroShadow);
 
@@ -155,7 +155,7 @@ export default async function comp(S) {
   const tGuess = B('guess'), tHalf = W('guess', 'half'), tGuessed = W('guess', 'guessed');
   const tActual = B('actual'), t23 = W('actual', 'twenty');
   const tName = B('name'), tCenter = B('center'), tOwn = B('theirown');
-  const tDeep = B('deeper'), tShaky = B('shaky'), tNever = W('shaky', 'never');
+  const tDeep = B('deeper'), tShaky = B('shaky'), tNever = W('shaky', 'less');
   const tReplay = B('replay'), tRent = B('rentfree'), tFree = B('freedom');
   const tLonely = W('freedom', 'lonely'), tFreedomW = W('freedom', 'freedom');
   const tLiving = B('living'), tCta = B('cta');
@@ -175,8 +175,8 @@ export default async function comp(S) {
     { t: tStrangers + 1.4, p: [2.6, 4.4, 15.5], l: [0, 2.3, 0.4], fov: 38 },
     { t: tShirt + 1.0, p: [1.2, 3.4, 11.2], l: [0, 2.4, 0.4], fov: 33 },
     { t: tGuess.start + 0.2, p: [1.0, 3.3, 10.6], l: [0, 2.4, 0.4], fov: 33 },
-    { t: tGuess.start + 0.25, p: [0.95, 2.85, -2.5], l: [0.35, 2.25, 8.5], fov: 46, cut: true },
-    { t: tActual.end, p: [0.85, 2.8, -2.0], l: [0.3, 2.2, 8.5], fov: 44, e: 'linear' },
+    { t: tGuess.start + 0.25, p: [-0.9, 2.7, -2.4], l: [-0.3, 2.3, 8.5], fov: 46, cut: true },
+    { t: tActual.end, p: [-0.8, 2.65, -1.9], l: [-0.25, 2.25, 8.5], fov: 44, e: 'linear' },
     { t: tName.start - 0.05, p: [0.3, 1.55, 2.45], l: [0, 10.5, 2.6], fov: 52, cut: true },
     { t: tName.end + 0.2, p: [0.2, 1.75, 2.4], l: [0, 10.5, 2.6], fov: 46, e: 'linear' },
     // deeper: chest/face close-up
@@ -194,9 +194,9 @@ export default async function comp(S) {
   // ------------------------------------------------------------------ 2D layers
   const dom = document.getElementById('dom');
   const kick = el('div', { html: `${T.kicker} <span style="color:#EDEAE4;opacity:.55">·</span> <span style="color:#EDEAE4">${T.title}</span>`, style: { fontWeight: '700', fontSize: '30px', letterSpacing: '0.3em', color: UI.C.gold, whiteSpace: 'nowrap' } }, dom);
-  const hookHead = UI.header(dom, T.hook_text, { y: 360, size: 66 });
+  const hookHead = UI.header(dom, T.hook_text, { y: 380, size: 66, width: 840 });
   const study1 = UI.studyCard(dom, { label: T.study_label || 'STUDY', org: T.study1_org, year: T.study1_year, title: T.study1_title, authors: T.study1_authors, y: 560 });
-  const bars = UI.statBars(dom, { labelA: T.guessed, valueA: 50, labelB: T.actual, valueB: 23, y: 470 });
+  const bars = UI.statBars(dom, { labelA: T.guessed, valueA: 46, labelB: T.actual, valueB: 23, y: 470 });
   const slam = UI.titleSlam(dom, { kicker: T.kicker, title: T.title, y: 640, size: T.title_size || 128, accentIndex: T.title_accent });
   const study2 = UI.studyCard(dom, { label: T.study_label || 'STUDY', org: T.study2_title, year: T.study2_year, title: T.study2_sub || '', authors: T.study2_authors, y: 520 });
   const wave = UI.waveform(dom, { y: 600, labels: [T.wave_label || '● YOUR VOICE', T.wave_feels || 'HOW IT FEELS', T.wave_sounded || 'HOW IT SOUNDED'] });
@@ -204,6 +204,7 @@ export default async function comp(S) {
   const end = UI.endCard(dom, { follow: T.follow, sub: T.follow_sub, question: T.question, y: 700 });
   const src = UI.sourceLine(dom, T.source);
   const src2 = UI.sourceLine(dom, T.source2 || T.source);
+  const rent = UI.header(dom, T.rentfree, { y: 330, size: 60 });
   const tags = [T.tag1 || 'what they said', T.tag2 || 'their hair', T.tag3 || 'their voice', T.tag4 || 'their mistakes'].map((txt) =>
     el('div', { text: txt, style: { padding: '14px 26px', borderRadius: '40px', background: 'rgba(11,13,18,0.8)', border: '2px solid rgba(255,200,61,0.55)', color: '#EDEAE4', fontWeight: '700', fontSize: '34px', whiteSpace: 'nowrap' } }, dom));
   const tagPos = [[300, 380], [760, 450], [330, 540], [740, 620]];
@@ -348,9 +349,9 @@ export default async function comp(S) {
     } else if (t >= tCenter.start - 0.05 && t < tOwn.start) {
       // god's-eye: slow rotation above the lone figure in its pool of light
       const u = prog(t, tCenter.start, tOwn.start);
-      const a = u * 1.4;
-      const h = lerp(9.5, 7.2, E.inOutSine(u));
-      camera.position.set(Math.sin(a) * 2.6, h, 0.45 + Math.cos(a) * 2.6);
+      const a = u * 2.6;
+      const h = lerp(7.0, 5.6, E.inOutSine(u));
+      camera.position.set(Math.sin(a) * 4.0, h, 0.45 + Math.cos(a) * 4.0);
       camera.up.set(Math.sin(a + Math.PI), 0, Math.cos(a + Math.PI)).normalize();
       camera.lookAt(0, 1.0, 0.45);
       if (camera.fov !== 40) { camera.fov = 40; camera.updateProjectionMatrix(); }
@@ -364,11 +365,11 @@ export default async function comp(S) {
     renderer.render(scene, camera);
 
     // ---- 2D
-    put(kick, { x: 540, y: 250, o: vis(t, -1, tStudy.start + 0.6, 0.01, 0.3) });
+    put(kick, { x: 540, y: 285, o: vis(t, -1, tStudy.start + 0.6, 0.01, 0.3) });
     hookHead(t, -1, tStudy.start + 0.6);
     const cardDark = Math.max(
       vis(t, W('study', 'psychologists') - 0.2, tStrangers - 0.3, 0.3, 0.4) * 0.3,
-      vis(t, tGuessed - 0.4, tActual.end + 0.2, 0.3, 0.3) * 0.25,
+      vis(t, W('guess', 'how') - 0.3, tActual.end + 0.2, 0.3, 0.3) * 0.25,
       vis(t, tName.start, tName.end + 0.1, 0.05, 0.25) * 0.35,
       vis(t, W('deeper', 'Another') - 0.2, tShaky.end, 0.3, 0.3) * 0.45,
       vis(t, tReplay.start, tReplay.end + 0.2, 0.3, 0.3) * 0.45,
@@ -378,11 +379,12 @@ export default async function comp(S) {
     dark.style.opacity = String(cardDark);
     dark.style.display = cardDark > 0.002 ? '' : 'none';
     study1(t, W('study', 'psychologists') - 0.1, tStrangers - 0.3);
-    bars(t, tGuessed - 0.15, t23, tActual.end + 0.2);
+    bars(t, tGuessed - 0.15, t23, tActual.end + 0.2, W('guess', 'how') - 0.1);
     slam(t, tName.start, tName.end + 0.1);
     study2(t, W('deeper', 'Another') - 0.1, tDeep.end + 0.1);
     wave(t, tShaky.start - 0.1, tShaky.end + 0.15, tNever);
-    tiles(t, [W('replay', 'party') - 0.1, W('replay', 'text') - 0.1, W('replay', 'three') - 0.1], tReplay.end + 0.25);
+    rent(t, W('rentfree', 'nowhere') - 0.05, tFree.start - 0.05);
+    tiles(t, [W('replay', 'party') - 0.1, W('replay', 'text') - 0.1, W('replay', '3') - 0.1], tReplay.end + 0.25);
     end(t, tCta.start + 0.05, END - 1.45, W('cta', 'tell'));
     src(t, W('study', 'psychologists'), tActual.end);
     src2(t, W('deeper', 'Another'), tShaky.end);

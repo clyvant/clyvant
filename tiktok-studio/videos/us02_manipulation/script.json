@@ -77,16 +77,20 @@
     "save": "SAVE THIS",
     "save_sub": "for the next time something feels off",
     "question": "Which one has been used on you?",
-    "src1": "Regan (1971), J. Experimental Social Psychology 7",
+    "src1": "Regan (1971), J. Experimental Social Psychology 7(6)",
     "src2": "Freedman & Fraser (1966), J. Personality & Social Psychology 4(2)",
     "src3": "Cialdini et al. (1975), J. Personality & Social Psychology 31(2)",
-    "src4": "Skinner (1957), Schedules of Reinforcement · Dutton & Painter (1981)",
-    "src5": "Freyd (1997), Feminism & Psychology 7(1)"
+    "src4": "Ferster & Skinner (1957), Schedules of Reinforcement · Dutton & Painter (1981), Victimology 6",
+    "src5": "Freyd (1997), Feminism & Psychology 7(1)",
+    "mentor": "2 YEARS OF MENTORING",
+    "refused": "EVERYONE REFUSED",
+    "unpred": "UNPREDICTABLE REWARDS",
+    "truth": "THE UNCOMFORTABLE TRUTH"
   },
   "beats": [
     {
       "id": "hook",
-      "vo": "Five psychology tricks people use on you every day. Number four is why you can't walk away from someone who's bad for you.",
+      "vo": "Five psychology tricks people use on you every day. Number four is why it's so hard to walk away from someone who's bad for you.",
       "emph": [
         "Five",
         "four",
@@ -136,7 +140,7 @@
     },
     {
       "id": "t1",
-      "vo": "In 1971, a researcher gave people a free can of Coke, then asked them to buy raffle tickets. They bought about twice as many as people who got nothing.",
+      "vo": "In a 1971 study, a stranger posing as a fellow volunteer brought people a free Coke, then asked them to buy his raffle tickets. They bought about twice as many as people who got nothing.",
       "emph": [
         "free",
         "twice"
@@ -210,7 +214,7 @@
     },
     {
       "id": "t2b",
-      "vo": "But people who had agreed to a tiny sign two weeks earlier? Seventy-six percent.",
+      "vo": "But people who had agreed to a tiny safe-driving sign two weeks earlier? Seventy-six percent. Later studies find a smaller effect, but the pattern holds.",
       "emph": [
         "tiny",
         "Seventy-six"

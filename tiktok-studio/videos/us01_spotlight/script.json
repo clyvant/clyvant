@@ -54,8 +54,8 @@
     "guessed": "THEY GUESSED",
     "actual": "ACTUALLY NOTICED",
     "study2_title": "THE ILLUSION OF TRANSPARENCY",
-    "study2_authors": "Gilovich · Savitsky · Medvec",
-    "study2_year": "1998",
+    "study2_authors": "Savitsky · Gilovich",
+    "study2_year": "2003",
     "item1": "the party",
     "item2": "the text",
     "item3": "3:07 AM",
@@ -63,10 +63,10 @@
     "follow": "FOLLOW",
     "follow_sub": "for psychology that sets you free",
     "question": "What moment do you still replay?",
-    "source": "Source: Gilovich, Medvec & Savitsky (2000), J. Personality & Social Psychology 78(2)",
-    "study2_sub": "We think our nerves show. Mostly, they don't.",
+    "source": "Source: Gilovich, Medvec & Savitsky (2000), J. Personality & Social Psychology 78(2), 211–222",
+    "study2_sub": "We think our nerves show. They show far less than we feel.",
     "hook_text": "Nobody is watching you<br><span style=\"color:#FFC83D\">as closely as you think.</span>",
-    "source2": "Source: Gilovich, Savitsky & Medvec (1998), J. Personality & Social Psychology 75(2)"
+    "source2": "Source: Savitsky & Gilovich (2003), J. Experimental Social Psychology 39, 618–625"
   },
   "beats": [
     {
@@ -92,7 +92,7 @@
     },
     {
       "id": "study",
-      "vo": "In the year 2000, psychologists at Cornell asked students to walk into a room full of strangers, wearing an embarrassing T-shirt.",
+      "vo": "In a 2000 study, psychologists at Cornell asked students to walk into a room of strangers, wearing an embarrassing T-shirt.",
       "emph": [
         "2000",
         "Cornell",
@@ -118,7 +118,7 @@
     },
     {
       "id": "guess",
-      "vo": "Afterwards, they asked them: how many people noticed your shirt? The students guessed about half.",
+      "vo": "Afterwards, they asked them: how many people noticed what was on your shirt? The students guessed about half.",
       "emph": [
         "half"
       ],
@@ -229,10 +229,11 @@
     },
     {
       "id": "deeper",
-      "vo": "And it goes deeper. Another study found we overestimate how much other people can see our nerves.",
+      "vo": "And it goes deeper. Another study put nervous people in front of an audience. They were sure their nerves showed. The audience saw far less than they felt.",
       "emph": [
         "deeper",
-        "nerves"
+        "far",
+        "less"
       ],
       "sfx": [
         {
@@ -254,13 +255,13 @@
     },
     {
       "id": "shaky",
-      "vo": "That shaky voice you were sure everyone heard? Most people never even noticed.",
+      "vo": "That shaky voice you were sure everyone heard? Most people noticed far less than you think.",
       "emph": [
-        "never"
+        "less"
       ],
       "sfx": [
         {
-          "at": "word:never",
+          "at": "word:less",
           "name": "swish",
           "gain": -8
         }
@@ -268,16 +269,12 @@
     },
     {
       "id": "replay",
-      "vo": "So that thing you said at the party, the text you regret, the moment you replay at three in the morning?",
+      "vo": "So that thing you said at the party, the text you regret, the moment you keep replaying at 3 AM?",
       "emph": [
         "party",
         "text",
-        "three"
+        "3"
       ],
-      "replace": {
-        "three": "3",
-        "morning?": "AM?"
-      },
       "sfx": [
         {
           "at": "word:party",
@@ -290,7 +287,7 @@
           "gain": -8
         },
         {
-          "at": "word:three",
+          "at": "word:3",
           "name": "tick",
           "gain": -4
         }

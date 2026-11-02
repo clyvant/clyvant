@@ -458,7 +458,7 @@ function symbolStrip(px = 1024) {
   const syms = ['heart', 'snow', 'heart', 'seven', 'snow', 'heart'];
   const cell = px / syms.length;
   syms.forEach((sname, i) => {
-    g.save(); g.translate(cell * i + cell / 2, 128); g.rotate(-Math.PI / 2);
+    g.save(); g.translate(cell * i + cell / 2, 128); g.rotate(Math.PI / 2);
     if (sname === 'heart') {
       g.fillStyle = '#e0283a'; g.beginPath();
       g.moveTo(0, 38); g.bezierCurveTo(-70, -10, -40, -70, 0, -32); g.bezierCurveTo(40, -70, 70, -10, 0, 38); g.fill();

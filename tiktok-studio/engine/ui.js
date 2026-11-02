@@ -4,7 +4,7 @@ import { el, put, prog, lerp, E, tw, vis, clamp, typeText } from './runtime.js';
 
 export const C = {
   ink: '#07080B', bone: '#EDEAE4', dim: 'rgba(237,234,228,0.62)', gold: '#FFC83D', amber: '#F2A93B',
-  red: '#FF4D4D', mint: '#3DDC97', glass: 'rgba(11,13,18,0.78)', line: 'rgba(255,255,255,0.14)',
+  red: '#FF4D4D', mint: '#3DDC97', glass: 'rgba(11,13,18,0.86)', line: 'rgba(255,255,255,0.14)',
 };
 
 const cardStyle = (w) => ({
@@ -21,7 +21,7 @@ export function kicker(parent, text, { size = 30, color = C.gold } = {}) {
 }
 
 /** citation card: org · year, title, authors. update(t, t0, t1) */
-export function studyCard(parent, { label = 'STUDY', org, year, title, authors, y = 620, w = 860 }) {
+export function studyCard(parent, { label = 'STUDY', org, year, title, authors, y = 620, w = 810, x = 505 }) {
   const card = el('div', { style: cardStyle(w) }, parent);
   const head = el('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: '700', fontSize: '27px', letterSpacing: '0.22em', color: C.gold } }, card);
   head.innerHTML = `<span>● ${label}</span><span style="color:${C.dim}">${year}</span>`;
@@ -33,7 +33,7 @@ export function studyCard(parent, { label = 'STUDY', org, year, title, authors, 
     const v = vis(t, t0, t1, 0.35, 0.3);
     if (v <= 0) { put(card, { o: 0 }); return; }
     const p = prog(t, t0, t0 + 0.45);
-    put(card, { x: 540, y: y + lerp(80, 0, E.outBack(p, 1.4)), s: lerp(0.92, 1, E.outCubic(p)), o: v, r: lerp(-2, 0, E.outCubic(p)) });
+    put(card, { x, y: y + lerp(80, 0, E.outBack(p, 1.4)), s: lerp(0.92, 1, E.outCubic(p)), o: v, r: lerp(-2, 0, E.outCubic(p)) });
     typeText(titleEl, title, t, t0 + 0.35, 42, true);
     orgEl.style.opacity = String(prog(t, t0 + 0.1, t0 + 0.4));
     auth.style.opacity = String(prog(t, t0 + 0.9, t0 + 1.3));
@@ -41,7 +41,7 @@ export function studyCard(parent, { label = 'STUDY', org, year, title, authors, 
 }
 
 /** two horizontal bars: A (expected) vs B (actual). update(t, tA, tB, tEnd) */
-export function statBars(parent, { labelA, valueA, labelB, valueB, y = 640, w = 880, colorA = 'rgba(237,234,228,0.55)', colorB = C.gold, max = 100, fmt = (v) => Math.round(v) + '%' }) {
+export function statBars(parent, { labelA, valueA, labelB, valueB, y = 640, w = 810, x = 505, colorA = 'rgba(237,234,228,0.55)', colorB = C.gold, max = 100, fmt = (v) => Math.round(v) + '%' }) {
   const card = el('div', { style: { ...cardStyle(w), padding: '40px 44px' } }, parent);
   const row = (label, color) => {
     const r = el('div', { style: { position: 'static', transform: 'none', marginBottom: '34px' } }, card);
@@ -54,11 +54,11 @@ export function statBars(parent, { labelA, valueA, labelB, valueB, y = 640, w = 
     return { v, bar };
   };
   const A = row(labelA, colorA), B = row(labelB, colorB);
-  return (t, tA, tB, tEnd) => {
-    const env = vis(t, tA - 0.2, tEnd, 0.3, 0.35);
+  return (t, tA, tB, tEnd, tShow = tA - 0.2) => {
+    const env = vis(t, tShow, tEnd, 0.3, 0.35);
     if (env <= 0) { put(card, { o: 0 }); return; }
-    const p = prog(t, tA - 0.2, tA + 0.25);
-    put(card, { x: 540, y: y + lerp(70, 0, E.outCubic(p)), o: env, s: lerp(0.94, 1, E.outCubic(p)) });
+    const p = prog(t, tShow, tShow + 0.45);
+    put(card, { x, y: y + lerp(70, 0, E.outCubic(p)), o: env, s: lerp(0.94, 1, E.outCubic(p)) });
     const a = valueA * E.outCubic(prog(t, tA, tA + 1.0));
     A.v.textContent = fmt(a);
     A.bar.style.width = (a / max) * 100 + '%';
@@ -140,7 +140,7 @@ export const ICONS = {
 /** three icon tiles appearing at given times. update(t, times[3], tEnd) */
 export function iconTiles(parent, items, { y = 640 } = {}) {
   const tiles = items.map((it) => {
-    const b = el('div', { style: { ...cardStyle(300), width: '290px', padding: '28px 18px', textAlign: 'center' } }, parent);
+    const b = el('div', { style: { ...cardStyle(300), width: '270px', padding: '28px 14px', textAlign: 'center' } }, parent);
     b.innerHTML = `${ICONS[it.icon] || ''}<div style="margin-top:10px;font-weight:800;font-size:${it.size || 38}px;letter-spacing:-0.01em;color:#EDEAE4">${it.label}</div>`;
     return b;
   });
@@ -150,7 +150,7 @@ export function iconTiles(parent, items, { y = 640 } = {}) {
       const env = vis(t, t0, tEnd, 0.01, 0.3);
       if (env <= 0) { put(b, { o: 0 }); return; }
       const p = prog(t, t0, t0 + 0.35);
-      const x = 540 + (i - 1) * 320;
+      const x = 500 + (i - 1) * 290;
       put(b, { x, y: y + lerp(120, 0, E.outBack(p, 1.6)) + Math.sin(t * 1.6 + i) * 6, o: env * Math.min(1, p * 2), r: lerp((i - 1) * 12, (i - 1) * 3, E.outCubic(p)), s: lerp(0.6, 1, E.outBack(p, 1.8)) });
     });
   };
@@ -158,7 +158,7 @@ export function iconTiles(parent, items, { y = 640 } = {}) {
 
 /** end card: FOLLOW pill + question. update(t, t0, t1) */
 export function endCard(parent, { follow = 'FOLLOW', sub = '', question = '', y = 700 }) {
-  const box = el('div', { style: { width: '920px', textAlign: 'center' } }, parent);
+  const box = el('div', { style: { width: '820px', textAlign: 'center' } }, parent);
   const pill = el('div', { text: follow, style: { position: 'static', transform: 'none', display: 'inline-block', padding: '26px 70px', borderRadius: '70px', background: C.gold, color: C.ink, fontWeight: '900', fontSize: '64px', letterSpacing: '0.08em', boxShadow: `0 0 60px rgba(255,200,61,0.45)` } }, box);
   const s = el('div', { text: sub, style: { position: 'static', transform: 'none', marginTop: '26px', fontWeight: '600', fontSize: '38px', color: C.bone } }, box);
   const q = el('div', { style: { position: 'static', transform: 'none', marginTop: '70px', padding: '32px 36px', borderRadius: '26px', background: C.glass, border: `2px solid ${C.line}`, fontWeight: '800', fontSize: '50px', lineHeight: '1.2', color: C.bone } }, box);
@@ -166,7 +166,7 @@ export function endCard(parent, { follow = 'FOLLOW', sub = '', question = '', y 
   return (t, t0, t1, tQ) => {
     const env = vis(t, t0, t1, 0.3, 0.35);
     if (env <= 0) { put(box, { o: 0 }); return; }
-    put(box, { x: 540, y, o: env });
+    put(box, { x: 500, y, o: env });
     const p = prog(t, t0, t0 + 0.45);
     pill.style.transform = `scale(${lerp(0.5, 1, E.outBack(p, 2.2)) * (1 + 0.03 * Math.sin(t * 6))})`;
     s.style.opacity = String(prog(t, t0 + 0.25, t0 + 0.6));
@@ -177,8 +177,8 @@ export function endCard(parent, { follow = 'FOLLOW', sub = '', question = '', y 
 }
 
 /** persistent top hook/header text, e.g. series title. update(t, t0, t1) */
-export function header(parent, text, { y = 300, size = 54, color = C.bone } = {}) {
-  const h = el('div', { html: text, style: { width: '900px', textAlign: 'center', fontWeight: '800', fontSize: size + 'px', lineHeight: '1.12', color, letterSpacing: '-0.01em', textShadow: '0 6px 30px rgba(0,0,0,0.75)' } }, parent);
+export function header(parent, text, { y = 300, size = 54, color = C.bone, width = 840 } = {}) {
+  const h = el('div', { html: text, style: { width: width + 'px', textAlign: 'center', fontWeight: '800', fontSize: size + 'px', lineHeight: '1.12', color, letterSpacing: '-0.01em', textShadow: '0 6px 30px rgba(0,0,0,0.75)' } }, parent);
   return (t, t0, t1, o = {}) => {
     const env = vis(t, t0, t1, 0.12, 0.3);
     put(h, { x: 540, y: y + (o.dy || 0), o: env, s: lerp(1.08, 1, E.outCubic(prog(t, t0, t0 + 0.3))) });
@@ -187,7 +187,7 @@ export function header(parent, text, { y = 300, size = 54, color = C.bone } = {}
 
 /** small source line at the bottom-left of the safe area */
 export function sourceLine(parent, text) {
-  const s = el('div', { text, style: { width: '820px', fontWeight: '500', fontSize: '21px', lineHeight: '1.35', color: 'rgba(237,234,228,0.5)' } }, parent);
+  const s = el('div', { text, style: { maxWidth: '800px', padding: '8px 14px', borderRadius: '10px', background: 'rgba(5,6,8,0.62)', fontWeight: '500', fontSize: '21px', lineHeight: '1.35', color: 'rgba(237,234,228,0.72)' } }, parent);
   return (t, t0, t1) => put(s, { x: 80, y: 1395, ax: 0, ay: 1, o: vis(t, t0, t1, 0.3, 0.3) * 0.9 });
 }
 
