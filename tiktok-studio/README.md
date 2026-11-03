@@ -7,9 +7,9 @@ loudness-normalised to −14 LUFS.
 
 | Video | Language | Length | Topic |
 |---|---|---|---|
-| `videos/us01_spotlight` | EN-US | 1:18 | The spotlight effect — "nobody is watching you as closely as you think" |
-| `videos/us02_manipulation` | EN-US | 1:45 | 5 manipulation tactics (dark psychology, framed as defence) |
-| `videos/fr01_effet_projecteur` | FR | 1:22 | L'effet projecteur (French script, same direction as US-01) |
+| `videos/us01_spotlight` | EN-US | 1:23 | The spotlight effect — "nobody is watching you as closely as you think" |
+| `videos/us02_manipulation` | EN-US | 1:56 | 5 manipulation tactics (dark psychology, framed as defence) |
+| `videos/fr01_effet_projecteur` | FR | 1:34 | L'effet projecteur (French script, same direction as US-01) |
 
 The strategy behind them is in [`PLAYBOOK.md`](PLAYBOOK.md).
 
